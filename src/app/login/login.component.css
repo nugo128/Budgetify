@@ -6,3 +6,33 @@
   justify-content: center;
   align-items: center;
 }
+.inputs_container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  background-color: #ffffffcc;
+  padding: 60px;
+  border-radius: 10px;
+}
+.inputs_container h2 {
+  text-align: center;
+}
+.loggin_form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.loggin_form input {
+  height: 55px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 1px solid #333333;
+}
+.login_button {
+  height: 55px;
+  border-radius: 10px;
+  border: none;
+  width: 350px;
+  background-color: #b9e2e6;
+}
