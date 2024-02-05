@@ -17,6 +17,9 @@
 .inputs_container h2 {
   text-align: center;
 }
+.inputs_container h3 {
+  text-align: center;
+}
 .loggin_form {
   display: flex;
   flex-direction: column;
@@ -35,7 +38,4 @@
   border: none;
   width: 350px;
   background-color: #b9e2e6;
-}
-.inputs_container h3 {
-  text-align: center;
 }
