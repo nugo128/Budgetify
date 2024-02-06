@@ -10,5 +10,5 @@ export class PasswordInputComponent {
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
-  @Input() placeholder_text = '';
+  @Input() placeholderText = '';
 }
