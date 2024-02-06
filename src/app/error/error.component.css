@@ -1,0 +1,15 @@
+.error_background {
+  background-color: #eceded;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.error_background img {
+  margin-top: 200px;
+  width: 400px;
+}
+.error_background h2 {
+  font-size: 40px;
+  font-family: "Alata";
+}
