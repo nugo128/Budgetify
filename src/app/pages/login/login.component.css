@@ -1,5 +1,6 @@
 .login_container {
-  background: url("../../assets/images/image.png") no-repeat center center fixed;
+  background: url("../../../assets/images/image.png") no-repeat center center
+    fixed;
   background-size: cover;
   height: 100vh;
   display: flex;
@@ -19,15 +20,6 @@
   font-family: "Alata";
   letter-spacing: 1px;
   font-size: 40px;
-}
-.inputs_container h3 {
-  text-align: center;
-  color: #787878;
-}
-.inputs_container h3 a {
-  font-size: 20px;
-  text-decoration: none;
-  color: black;
 }
 .loggin_form {
   display: flex;
@@ -49,4 +41,13 @@
   width: 350px;
   background-color: #b9e2e6;
   font-family: "Space Grotesk";
+}
+.inputs_container h3 {
+  text-align: center;
+  color: #787878;
+}
+.inputs_container h3 a {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
 }
