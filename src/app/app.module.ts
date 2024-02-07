@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { PasswordInputComponent } from './password-input/password-input.component';
-import { RegisterComponent } from './register/register.component';
-import { ErrorComponent } from './error/error.component';
-import { MainPageComponent } from './main-page/main-page.component';
-import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './pages/login/login.component';
+import { PasswordInputComponent } from './components/password-input/password-input.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { MainPageComponent } from './layouts/main-page/main-page.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,11 @@ import { HeaderComponent } from './header/header.component';
     RegisterComponent,
     ErrorComponent,
     MainPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    CardComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

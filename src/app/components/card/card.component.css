@@ -1,0 +1,41 @@
+.card_container {
+  width: 430px;
+  height: 184px;
+  background: url("../../../assets/images/card1.png") no-repeat center center;
+  box-shadow: 5px 10px 20px 0px #00000040;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+.card {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 20px;
+}
+.card h3 {
+  font-family: "Space Grotesk";
+  font-size: 32px;
+  color: white;
+}
+.card h2 {
+  font-family: "Space Grotesk";
+  font-size: 53px;
+  color: white;
+}
+.currency {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+.currency h2 {
+  color: #d376d7;
+  font-size: 64px;
+}
