@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { PasswordInputComponent } from './password-input/password-input.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorComponent } from './error/error.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ErrorComponent } from './error/error.component';
     LoginComponent,
     PasswordInputComponent,
     RegisterComponent,
-    ErrorComponent
+    ErrorComponent,
+    MainPageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
