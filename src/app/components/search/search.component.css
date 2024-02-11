@@ -1,0 +1,19 @@
+.search {
+  width: 570px;
+  height: 55px;
+
+  border-radius: 10px;
+  border: none;
+  padding-left: 50px;
+}
+.search_container {
+  position: relative;
+}
+.search_container svg {
+  width: 25px;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
