@@ -2,4 +2,9 @@
   background-color: #eceded;
   height: 100vh;
   padding: 0px 52px;
+  display: flex;
+  justify-content: space-between;
+}
+.accounts {
+  width: 405px;
 }

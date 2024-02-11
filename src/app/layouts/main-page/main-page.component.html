@@ -1,4 +1,13 @@
 <div class="main_page">
-    <app-card cardType="Debit card" amount="5,356.18" currency="$" [selected]="true"></app-card>
+    <div class="cards">
+        <app-card cardType="Debit card" amount="5,356.18" currency="$" [selected]="true"></app-card>
     <app-card cardType="Credit card" amount="3,356.18" currency="€" [selected]="false"></app-card>
+    </div>
+    <div class="transactions">
+        <app-search></app-search>
+    </div>
+    <div class="accounts">
+        <p>accounts</p>
+    </div>
+
 </div>
