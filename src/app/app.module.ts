@@ -13,6 +13,7 @@ import { CardComponent } from './components/card/card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SearchComponent } from './components/search/search.component';
     HeaderComponent,
     CardComponent,
     SearchComponent,
+    TransactionComponent,
   ],
   imports: [
     BrowserModule,
