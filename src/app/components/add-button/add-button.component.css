@@ -1,0 +1,13 @@
+.add-button {
+  display: flex;
+  width: 270px;
+  background-color: #b9e2e6;
+  padding: 6px 10px;
+  gap: 5px;
+  align-items: center;
+  border-radius: 10px;
+  border: none;
+  font-family: "Space Grotesk";
+  font-weight: 400;
+  font-size: 20px;
+}

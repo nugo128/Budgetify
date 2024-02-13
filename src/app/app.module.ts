@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { AddButtonComponent } from './components/add-button/add-button.component';
+import { PiggyBankComponent } from './components/piggy-bank/piggy-bank.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { TransactionComponent } from './components/transaction/transaction.compo
     CardComponent,
     SearchComponent,
     TransactionComponent,
+    AddButtonComponent,
+    PiggyBankComponent,
   ],
   imports: [
     BrowserModule,
