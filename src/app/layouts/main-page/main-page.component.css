@@ -1,10 +1,27 @@
 .main_page {
   background-color: #eceded;
-  height: 100vh;
+  height: max-content;
   padding: 0px 52px;
   display: flex;
   justify-content: space-between;
 }
 .accounts {
   width: 405px;
+}
+.transaction_date {
+  display: flex;
+  gap: 6px;
+  margin: 10px 0 10px 20px;
+}
+.transaction_date h2 {
+  color: #474747;
+  font-family: "Space Grotesk";
+  font-size: 18px;
+  line-height: 23px;
+  text-align: left;
+}
+.transaction_cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

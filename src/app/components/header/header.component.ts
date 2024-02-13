@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -8,17 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public user;
-  constructor(private http: HttpClient) {}
+  constructor(private userService: UserService) {}
   ngOnInit(): void {
-    this.http
-      .get('http://127.0.0.1:8000/api/user', {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      })
-      .subscribe((responseData) => {
-        console.log(responseData);
-        this.user = responseData;
-      });
+    this.userService.getUser().subscribe((responseData) => {
+      console.log(responseData);
+      this.user = responseData;
+    });
   }
 }
