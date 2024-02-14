@@ -1,10 +1,10 @@
 <div class="header">
-    <h2>Budgetify</h2>
+    <a routerLink="/" class="budgetify">Budgetify</a>
     <nav>
-        <a href="#">Categories</a>
-        <a href="#">Subscriptions</a>
-        <a href="#">Obligatory</a>
-        <a href="#">Statistic</a>
+        <a routerLink="categories" [ngClass]="{'active': currentUrl === 'categories'}">Categories</a>
+        <a routerLink="subscriptions" [ngClass]="{'active': currentUrl === 'subscriptions'}">Subscriptions</a>
+        <a routerLink="obligatory" [ngClass]="{'active': currentUrl === 'obligatory'}">Obligatory</a>
+        <a routerLink="statistic" [ngClass]="{'active': currentUrl === 'statistic'}">Statistic</a>
         <a href="#">Admin</a>
     </nav>
 
@@ -13,3 +13,4 @@
         <h3>{{user?.name}}</h3>
     </div>
 </div>
+<router-outlet></router-outlet>

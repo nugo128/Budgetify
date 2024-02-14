@@ -16,9 +16,7 @@ export class AppComponent {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.showHeader = !(
-          event.url === '/' ||
-          event.url === '/login' ||
-          event.url === '/register'
+          event.url === '/login' || event.url === '/register'
         );
       }
     });
