@@ -16,6 +16,11 @@ import { SearchComponent } from './components/search/search.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { PiggyBankComponent } from './components/piggy-bank/piggy-bank.component';
+import { SubscriptionsComponent } from './pages/subscriptions/subscriptions.component';
+import { ObligatoryComponent } from './pages/obligatory/obligatory.component';
+import { StatisticComponent } from './pages/statistic/statistic.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { AuthGuard } from './auth-guard';
 
 @NgModule({
   declarations: [
@@ -31,6 +36,10 @@ import { PiggyBankComponent } from './components/piggy-bank/piggy-bank.component
     TransactionComponent,
     AddButtonComponent,
     PiggyBankComponent,
+    SubscriptionsComponent,
+    ObligatoryComponent,
+    StatisticComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +47,7 @@ import { PiggyBankComponent } from './components/piggy-bank/piggy-bank.component
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -32,7 +32,7 @@ export class RegisterComponent {
       this.authService.register(formData).subscribe((responseData) => {
         console.log(responseData);
         localStorage.setItem('token', responseData['token']);
-        this.router.navigate(['/main']);
+        this.router.navigate(['/']);
       });
     }
   }
