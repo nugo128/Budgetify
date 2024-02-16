@@ -1,0 +1,100 @@
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  gap: 20px;
+  padding-top: 40px;
+  font-family: "Space Grotesk";
+}
+.type_data {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 60px;
+}
+.type {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.amount {
+  font-size: 36px;
+  font-family: "Space Grotesk";
+  font-weight: 400;
+}
+.description {
+  font-family: "Space Grotesk";
+  font-size: 24px;
+  font-weight: 400;
+  color: #373737;
+  margin: 30px 0;
+}
+.category_container {
+  display: flex;
+  gap: 20px;
+}
+.category {
+  width: 180px;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px solid black;
+  text-align: center;
+  padding-top: 20px;
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 700;
+}
+.transaction_info h2 {
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 700;
+  width: 160px;
+}
+.transaction_info {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.transaction_info div {
+  display: flex;
+  gap: 40px;
+}
+.date,
+.payee {
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+}
+.image_title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.reciep {
+  margin-top: 40px;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.reciep h2 {
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  color: #373737;
+}
+.r2 {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid black;
+}
+.close {
+  margin-left: 87%;
+  margin-top: 30%;
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  color: #373737;
+}
+svg {
+  cursor: pointer;
+}

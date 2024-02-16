@@ -5,3 +5,8 @@
 @font-face {
   font-family: "Alata", "Space Grotesk", sans-serif;
 }
+
+html,
+body {
+  height: 100%;
+}

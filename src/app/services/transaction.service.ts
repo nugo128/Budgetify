@@ -8,7 +8,7 @@ import { BASE_API_URL } from '../global';
 export class TransactionService {
   constructor(private http: HttpClient) {}
 
-  getUser() {
+  getTransactions() {
     return this.http.get(`${BASE_API_URL}/transactions`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,

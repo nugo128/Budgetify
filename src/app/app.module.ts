@@ -21,6 +21,17 @@ import { ObligatoryComponent } from './pages/obligatory/obligatory.component';
 import { StatisticComponent } from './pages/statistic/statistic.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { AuthGuard } from './auth-guard';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
+import {
+  MatDialogModule,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,14 +51,22 @@ import { AuthGuard } from './auth-guard';
     ObligatoryComponent,
     StatisticComponent,
     CategoriesComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSlideToggleModule,
+    MatButtonModule,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle,
+    MatDialogModule,
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
