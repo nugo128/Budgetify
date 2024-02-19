@@ -11,7 +11,7 @@ import { MainPageComponent } from './layouts/main-page/main-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
@@ -32,6 +32,7 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
+import { TokenInterceptor } from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,11 @@ import { DialogComponent } from './dialog/dialog.component';
     MatDialogTitle,
     MatDialogModule,
   ],
-  providers: [AuthGuard, provideAnimationsAsync()],
+  providers: [AuthGuard, provideAnimationsAsync(),{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
