@@ -7,6 +7,9 @@
   padding-left: 0;
   font-family: "Space Grotesk";
 }
+.content {
+  max-width: 600px;
+}
 .type_data {
   display: flex;
   justify-content: space-between;
@@ -31,6 +34,7 @@
 }
 .category_container {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 .category {

@@ -10,6 +10,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class EditTransactionDialogComponent implements OnInit {
   editTransactionForm: FormGroup;
   transactionType: string = '';
+  receivedArray: string[] = [];
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder
@@ -21,14 +22,30 @@ export class EditTransactionDialogComponent implements OnInit {
       date: [data.date],
       description: [data.description],
       transaction_type: [data.transaction_type],
+      category: [data.category],
     });
   }
   ngOnInit(): void {
     this.transactionType = this.data.transaction_type;
   }
+  onCategoryChange(categories: string[]) {
+    this.editTransactionForm.get('category').setValue(categories);
+  }
+
   formData: any = {
     transaction_type: '',
   };
+
+  handleArray(array: string[]) {
+    this.receivedArray = array;
+    let obj = {};
+    for (let i = 0; i < array.length; i++) {
+      obj[`category${i + 1}`] = array[i];
+      console.log(obj);
+    }
+    this.editTransactionForm.get('category').setValue(obj);
+    console.log(array);
+  }
   onSubmit() {
     if (this.editTransactionForm.valid) {
       this.formData = this.editTransactionForm.value;

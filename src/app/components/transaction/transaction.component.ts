@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class TransactionComponent {
   @Input() title = '';
   @Input() description = '';
+  @Input() category = '';
   @Input() date = '';
   @Input() author = '';
   @Input() transactionType = '';
