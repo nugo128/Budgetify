@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../../services/transaction.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../../dialog/dialog.component';
+import { DialogComponent } from '../../components/dialog/dialog.component';
 import { ITransaction } from '../../models/transaction';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -13,7 +14,8 @@ export class MainPageComponent implements OnInit {
   public transactions: ITransaction;
   constructor(
     private transactionService: TransactionService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class MainPageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      this.router.navigate(['/']);
       console.log(`Dialog result: ${result}`);
     });
   }

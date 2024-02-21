@@ -1,0 +1,78 @@
+.title {
+  display: flex;
+  font-size: 32px;
+  padding: 40px 0px;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Space Grotesk";
+}
+.trans_type {
+  display: flex;
+}
+.income,
+.expenses {
+  border: 2px solid #373737;
+  width: 160.79px;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  height: 50px;
+  padding: 0 5px;
+  position: absolute;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+.income {
+  left: 180px;
+  justify-content: end;
+  padding-right: 10px;
+  opacity: 50%;
+}
+.edit_form {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.content {
+  max-height: initial;
+}
+.images svg {
+  stroke: #000;
+  width: 100px;
+  height: 80px;
+}
+.images {
+  display: flex;
+  gap: 20px;
+}
+.images h2 {
+  font-size: 14px;
+  font-weight: 200;
+  color: #000;
+  text-align: center;
+  margin-top: -10px;
+}
+.add {
+  margin-top: 5px;
+  width: 80px;
+  height: 65px;
+  border: 1px dotted black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Space Grotesk;
+  font-size: 32px;
+  font-weight: 700;
+  color: black;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.save {
+  padding-left: 20px;
+}

@@ -1,4 +1,4 @@
-<button class="add-button">
+<button class="add-button" [ngStyle]="{'width': width ? width+'px' : ''}">
     <ng-content></ng-content>
     <p>{{buttonText}}</p>
 </button>

@@ -31,7 +31,9 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { EditTransactionDialogComponent } from './components/edit-transaction-dialog/edit-transaction-dialog.component';
+import { FormInputComponent } from './components/form-input/form-input.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { DialogComponent } from './dialog/dialog.component';
     StatisticComponent,
     CategoriesComponent,
     DialogComponent,
+    EditTransactionDialogComponent,
+    FormInputComponent,
   ],
   imports: [
     BrowserModule,
