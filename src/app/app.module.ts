@@ -40,6 +40,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AsyncPipe } from '@angular/common';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { AsyncPipe } from '@angular/common';
     MatAutocompleteModule,
     ReactiveFormsModule,
     AsyncPipe,
+    NgxDropzoneModule,
   ],
   providers: [AuthGuard, provideAnimationsAsync()],
   bootstrap: [AppComponent],

@@ -1,7 +1,7 @@
 .title {
   display: flex;
   font-size: 32px;
-  padding: 40px 0px;
+  padding: 20px 0px 10px 0;
   justify-content: space-between;
   align-items: center;
   font-family: "Space Grotesk";
@@ -30,7 +30,7 @@
   opacity: 50%;
 }
 .edit_form {
-  margin-top: 100px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -75,4 +75,13 @@
 }
 .save {
   padding-left: 20px;
+}
+.image-upload {
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 80px;
+  height: 65px;
+  right: 150px;
+  bottom: 140px;
+  position: absolute;
 }

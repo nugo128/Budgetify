@@ -25,6 +25,25 @@ export class EditTransactionDialogComponent implements OnInit {
       category: [data.category],
     });
   }
+  uploadedImageUrl: string | null = null;
+
+  onUploadSuccess(event: any): void {
+    console.log('File uploaded successfully:', event['addedFiles'][0]);
+    const uploadedFile = event['addedFiles'][0];
+    console.log(uploadedFile);
+
+    if (uploadedFile instanceof Blob) {
+      this.uploadedImageUrl = URL.createObjectURL(uploadedFile);
+    } else {
+      console.error('Invalid', event);
+    }
+  }
+
+  onFileRemoved(event: any): void {
+    console.log('File removed:', event);
+
+    this.uploadedImageUrl = null;
+  }
   ngOnInit(): void {
     this.transactionType = this.data.transaction_type;
   }

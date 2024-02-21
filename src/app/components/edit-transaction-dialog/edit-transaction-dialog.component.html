@@ -40,11 +40,14 @@
             </svg>
             <h2>img.jpeg</h2>
         </div>
-        <div class="add">
-            +
-        </div>
+        <div class="add" ngx-dropzone (change)="onUploadSuccess($event)" (removed)="onFileRemoved($event)">
+            <img *ngIf="uploadedImageUrl" [src]="uploadedImageUrl" alt="Uploaded Image" class="image-upload"/>
+            <div class="dropzone-label">+</div>
+          </div>
           
           
+          
+        
     </div>
 <div class="buttons">
     <mat-dialog-actions>
