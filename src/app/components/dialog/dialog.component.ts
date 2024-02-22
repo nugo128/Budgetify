@@ -1,5 +1,9 @@
 import { Component, Inject, Input } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { EditTransactionDialogComponent } from '../edit-transaction-dialog/edit-transaction-dialog.component';
 
@@ -12,7 +16,8 @@ export class DialogComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialog: MatDialog,
-    public router: Router
+    public router: Router,
+    public dialogRef: MatDialogRef<DialogComponent>
   ) {}
 
   openEditDialog(data: any) {
@@ -28,8 +33,13 @@ export class DialogComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.data = result;
+      }
       this.router.navigate([`transaction/${data.id}`]);
-      console.log(`Dialog result: ${result}`);
     });
+  }
+  closeDialogWithData(): void {
+    this.dialogRef.close(this.data);
   }
 }

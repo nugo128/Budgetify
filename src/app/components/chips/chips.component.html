@@ -1,6 +1,5 @@
 <mat-form-field class="example-chip-list" (click)="emitEvent()">
-    <mat-label>categories</mat-label>
-    <mat-chip-grid #chipGrid aria-label="category selection">
+    <mat-chip-grid #chipGrid aria-label="category selection" class="categories">
       @for (category of categories; track category) {
         <mat-chip-row (removed)="remove(category)">
           {{category}}
@@ -10,11 +9,11 @@
         </mat-chip-row>
       }
     </mat-chip-grid>
-    <input placeholder="New category..." #categoryInput [formControl]="categoriesCtrl"
+    <input #categoryInput [formControl]="categoriesCtrl"
       [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-      (matChipInputTokenEnd)="add($event)"/>
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      (matChipInputTokenEnd)="add($event)" class="input"/>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)" class="autocomplete">
       @for (category of filteredcategories | async; track category) {
         <mat-option [value]="category">{{category}}</mat-option>
       }

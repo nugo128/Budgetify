@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BASE_API_URL } from '../global';
 
 @Injectable({
@@ -13,6 +13,14 @@ export class TransactionService {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
+    });
+  }
+  updateTransaction(formData) {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    return this.http.post(`${BASE_API_URL}/updateTransactions`, formData, {
+      headers,
     });
   }
 }

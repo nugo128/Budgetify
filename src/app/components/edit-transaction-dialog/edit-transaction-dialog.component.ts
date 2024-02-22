@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { TransactionService } from '../../services/transaction.service';
 
 @Component({
   selector: 'app-edit-transaction-dialog',
@@ -11,11 +12,15 @@ export class EditTransactionDialogComponent implements OnInit {
   editTransactionForm: FormGroup;
   transactionType: string = '';
   receivedArray: string[] = [];
+  public images: any = [];
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private transactionService: TransactionService,
+    public dialogRef: MatDialogRef<EditTransactionDialogComponent>
   ) {
     this.editTransactionForm = this.fb.group({
+      id: [data.id],
       title: [data.title],
       amount: [data.amount],
       author: [data.author],
@@ -24,19 +29,15 @@ export class EditTransactionDialogComponent implements OnInit {
       transaction_type: [data.transaction_type],
       category: [data.category],
     });
+    console.log(data.date);
   }
   uploadedImageUrl: string | null = null;
 
   onUploadSuccess(event: any): void {
-    console.log('File uploaded successfully:', event['addedFiles'][0]);
-    const uploadedFile = event['addedFiles'][0];
-    console.log(uploadedFile);
-
-    if (uploadedFile instanceof Blob) {
-      this.uploadedImageUrl = URL.createObjectURL(uploadedFile);
-    } else {
-      console.error('Invalid', event);
-    }
+    event['addedFiles'].map((item) => {
+      this.images.push(URL.createObjectURL(item));
+    });
+    console.log(this.images);
   }
 
   onFileRemoved(event: any): void {
@@ -60,21 +61,22 @@ export class EditTransactionDialogComponent implements OnInit {
     let obj = {};
     for (let i = 0; i < array.length; i++) {
       obj[`category${i + 1}`] = array[i];
-      console.log(obj);
     }
     this.editTransactionForm.get('category').setValue(obj);
-    console.log(array);
   }
   onSubmit() {
     if (this.editTransactionForm.valid) {
       this.formData = this.editTransactionForm.value;
       this.formData.transaction_type = this.transactionType;
-      console.log(this.formData);
+      this.transactionService
+        .updateTransaction(this.formData)
+        .subscribe((responseData) => {
+          this.dialogRef.close(responseData);
+        });
     }
   }
   changeType(type: string) {
     this.transactionType = type;
-    console.log(this.transactionType);
     this.formData.transaction_type = type;
   }
 }

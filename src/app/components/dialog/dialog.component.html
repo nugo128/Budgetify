@@ -1,13 +1,13 @@
 <h2 mat-dialog-title class="title">Transaction Information 
-    <svg  mat-button (click)="openEditDialog(data)" [routerLink]="'transaction/'+data.id+'/edit'" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.68,147.31,64l24-24L216,84.68Z"></path></svg> 
+    <svg  mat-button (click)="openEditDialog(data)" [routerLink]="'transaction/'+data?.id+'/edit'" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.68,147.31,64l24-24L216,84.68Z"></path></svg> 
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path></svg>
-    <svg mat-dialog-close xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></h2>
+    <svg mat-dialog-close xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256" (click)="closeDialogWithData()"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></h2>
 <mat-dialog-content class="content">
     <div class="transaction_type">
 
         <div class="type_data">
            <div  class="type">
-            <svg *ngIf="data.transaction_type === 'Expenses'; else income" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg *ngIf="data?.transaction_type === 'Expenses'; else income" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="15" cy="15" r="15" fill="#EE3F19"/>
                 <path d="M15.7071 8.29289C15.3166 7.90237 14.6834 7.90237 14.2929 8.29289L7.92893 14.6569C7.53841 15.0474 7.53841 15.6805 7.92893 16.0711C8.31946 16.4616 8.95262 16.4616 9.34315 16.0711L15 10.4142L20.6569 16.0711C21.0474 16.4616 21.6805 16.4616 22.0711 16.0711C22.4616 15.6805 22.4616 15.0474 22.0711 14.6569L15.7071 8.29289ZM16 23V9H14V23H16Z" fill="white"/>
                 </svg>
@@ -20,35 +20,35 @@
                     </svg>
                     
             </ng-template>
-            <span>{{data.transaction_type}}</span>
+            <span>{{data?.transaction_type}}</span>
            </div>
           
 
-          <h2 class="amount" [ngStyle]="{'color': data.transaction_type === 'Expenses' ? '#EE3F19' : '#21C206'}"><span *ngIf="data.transaction_type==='Expenses'">-</span>{{data.amount | number: '.2-2'}}$ </h2>
+          <h2 class="amount" [ngStyle]="{'color': data?.transaction_type === 'Expenses' ? '#EE3F19' : '#21C206'}"><span *ngIf="data?.transaction_type==='Expenses'">-</span>{{data?.amount | number: '.2-2'}}$ </h2>
               </div>
-              <h2 class="description">{{data.title}}</h2>
+              <h2 class="description">{{data?.title}}</h2>
               <div class="category_container">
-                <h2 class="category" *ngFor="let item of data.category | keyvalue">{{ item.value }}</h2>
+                <h2 class="category" *ngFor="let item of data?.category | keyvalue">{{ item.value }}</h2>
                 </div>
             </div>
     <div class="transaction_info">
         <div class="date">
             <h2> Payment Date:</h2>
-            <span>{{data.date}}</span>
+            <span>{{data?.date}}</span>
         </div>
         <div class="payee">
             <h2> Payee:</h2>
-            <span>{{data.author}}</span>
+            <span>{{data?.author}}</span>
         </div>
         <div class="desc">
             <h2> Description</h2>
-            <span>{{data.description}}</span>
+            <span>{{data?.description}}</span>
         </div>
     </div>
     <div class="reciep">
         <div class="image_title">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#000000" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"></path></svg>
-        <h2>Reciepe for {{data.title}}</h2>
+        <h2>Reciepe for {{data?.title}}</h2>
         </div>
         <app-add-button width="170" buttonText="Download"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="18.1448" cy="18.103" r="17.5" fill="white"/>
@@ -59,7 +59,7 @@
     <div class="reciep r2">
         <div class="image_title">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#000000" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"></path></svg>
-        <h2>Reciepe for {{data.title}}</h2>
+        <h2>Reciepe for {{data?.title}}</h2>
         </div>
         <app-add-button buttonText="Download" width="170"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="18.1448" cy="18.103" r="17.5" fill="white"/>
@@ -69,5 +69,5 @@
     </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close class="close">Close</button>
+  <button mat-button mat-dialog-close class="close" (click)="closeDialogWithData()">Close</button>
 </mat-dialog-actions>
