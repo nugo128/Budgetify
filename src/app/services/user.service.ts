@@ -9,10 +9,6 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getUser() {
-    return this.http.get(`${BASE_API_URL}/user`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    });
+    return this.http.get(`${BASE_API_URL}/user`);
   }
 }

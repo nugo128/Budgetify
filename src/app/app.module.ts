@@ -11,7 +11,7 @@ import { MainPageComponent } from './layouts/main-page/main-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
@@ -31,6 +31,7 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
+
 import { DialogComponent } from './components/dialog/dialog.component';
 import { EditTransactionDialogComponent } from './components/edit-transaction-dialog/edit-transaction-dialog.component';
 import { FormInputComponent } from './components/form-input/form-input.component';
@@ -41,6 +42,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AsyncPipe } from '@angular/common';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { TokenInterceptor } from './token.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -86,7 +89,11 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     AsyncPipe,
     NgxDropzoneModule,
   ],
-  providers: [AuthGuard, provideAnimationsAsync()],
+  providers: [AuthGuard, provideAnimationsAsync(),{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

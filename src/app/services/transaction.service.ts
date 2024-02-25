@@ -9,11 +9,7 @@ export class TransactionService {
   constructor(private http: HttpClient) {}
 
   getTransactions() {
-    return this.http.get(`${BASE_API_URL}/transactions`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    });
+    return this.http.get(`${BASE_API_URL}/transactions`);
   }
   updateTransaction(formData) {
     const headers = new HttpHeaders({
