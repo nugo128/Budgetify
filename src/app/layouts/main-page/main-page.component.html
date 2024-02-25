@@ -17,8 +17,8 @@
                 </svg>
                 <h2>Transaction date</h2>
         </div>
-        <div class="transaction_cards" *ngFor="let transaction of transactions" mat-button (click)="openDialog(transaction)">
-<app-transaction [title]="transaction.title" [description]="transaction.description" [date]="transaction.date" [author]="transaction.author" [transactionType]="transaction.transaction_type" [amount]="transaction.amount"></app-transaction>
+        <div class="transaction_cards" *ngFor="let transaction of transactions" mat-button (click)="openDialog(transaction)" [routerLink]="'transaction/'+transaction.id">
+<app-transaction [category]="transaction.category['category1']" [title]="transaction.title" [description]="transaction.description" [date]="transaction.date" [author]="transaction.author" [transactionType]="transaction.transaction_type" [amount]="transaction.amount"></app-transaction>
         </div>
     </div>
     <div class="accounts">

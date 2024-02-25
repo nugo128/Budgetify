@@ -10,7 +10,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { MainPageComponent } from './layouts/main-page/main-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
@@ -31,8 +31,19 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { DialogComponent } from './dialog/dialog.component';
+
+import { DialogComponent } from './components/dialog/dialog.component';
+import { EditTransactionDialogComponent } from './components/edit-transaction-dialog/edit-transaction-dialog.component';
+import { FormInputComponent } from './components/form-input/form-input.component';
+import { ChipsComponent } from './components/chips/chips.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AsyncPipe } from '@angular/common';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 import { TokenInterceptor } from './token.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -53,6 +64,9 @@ import { TokenInterceptor } from './token.interceptor';
     StatisticComponent,
     CategoriesComponent,
     DialogComponent,
+    EditTransactionDialogComponent,
+    FormInputComponent,
+    ChipsComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +80,14 @@ import { TokenInterceptor } from './token.interceptor';
     MatDialogContent,
     MatDialogTitle,
     MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatChipsModule,
+    MatIconModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    AsyncPipe,
+    NgxDropzoneModule,
   ],
   providers: [AuthGuard, provideAnimationsAsync(),{
     provide:HTTP_INTERCEPTORS,

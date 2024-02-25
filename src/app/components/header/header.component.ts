@@ -13,29 +13,8 @@ import { filter } from 'rxjs';
 export class HeaderComponent implements OnInit {
   public user: IUser;
   public currentUrl: string;
-  constructor(
-    private userService: UserService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private userService: UserService) {}
   ngOnInit(): void {
-    const currentRoute = this.route;
-
-    const childRoutes = currentRoute.children;
-
-    childRoutes.forEach((childRoute) => {
-      childRoute.url.forEach((a) => (this.currentUrl = a[0]?.path));
-    });
-
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        const currentRoute = this.route;
-        const childRoutes = currentRoute.children;
-        childRoutes.forEach((childRoute) => {
-          childRoute.url.forEach((a) => (this.currentUrl = a[0]?.path));
-        });
-      });
     this.userService.getUser().subscribe((responseData: IUser) => {
       console.log(responseData);
       this.user = responseData;
