@@ -4,6 +4,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../components/dialog/dialog.component';
 import { ITransaction } from '../../models/transaction';
 import { Router } from '@angular/router';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-main-page',
@@ -12,10 +17,13 @@ import { Router } from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
   public transactions: any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   constructor(
     private transactionService: TransactionService,
     public dialog: MatDialog,
-    public router: Router
+    public router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -42,6 +50,12 @@ export class MainPageComponent implements OnInit {
       });
       this.router.navigate(['/']);
       console.log(`Dialog result: ${result}`);
+      if (result === 'delete') {
+        this._snackBar.open('Transaction was successfully removed', 'Close', {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
+      }
     });
   }
 }
