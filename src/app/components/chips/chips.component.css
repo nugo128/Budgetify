@@ -49,3 +49,6 @@
 ::ng-deep .mat-mdc-form-field-infix:hover {
   background-color: white !important;
 }
+::ng-deep .mat-mdc-chip {
+  margin-left: 30px !important;
+}

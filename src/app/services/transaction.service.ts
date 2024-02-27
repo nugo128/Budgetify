@@ -12,11 +12,9 @@ export class TransactionService {
     return this.http.get(`${BASE_API_URL}/transactions`);
   }
   updateTransaction(formData) {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    });
-    return this.http.post(`${BASE_API_URL}/updateTransactions`, formData, {
-      headers,
-    });
+    return this.http.post(`${BASE_API_URL}/updateTransactions`, formData);
+  }
+  deleteTransaction(id: number) {
+    return this.http.delete(`${BASE_API_URL}/deleteTransaction/${id}`);
   }
 }

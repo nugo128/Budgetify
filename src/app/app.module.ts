@@ -43,7 +43,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AsyncPipe } from '@angular/common';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { TokenInterceptor } from './token.interceptor';
-
+import { DeleteTransactionDialogComponent } from './components/delete-transaction-dialog/delete-transaction-dialog.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +67,7 @@ import { TokenInterceptor } from './token.interceptor';
     EditTransactionDialogComponent,
     FormInputComponent,
     ChipsComponent,
+    DeleteTransactionDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,11 +90,15 @@ import { TokenInterceptor } from './token.interceptor';
     AsyncPipe,
     NgxDropzoneModule,
   ],
-  providers: [AuthGuard, provideAnimationsAsync(),{
-    provide:HTTP_INTERCEPTORS,
-    useClass:TokenInterceptor,
-    multi:true
-  }],
+  providers: [
+    AuthGuard,
+    provideAnimationsAsync(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

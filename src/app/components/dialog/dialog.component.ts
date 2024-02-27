@@ -6,6 +6,8 @@ import {
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { EditTransactionDialogComponent } from '../edit-transaction-dialog/edit-transaction-dialog.component';
+import { DeleteTransactionDialogComponent } from '../delete-transaction-dialog/delete-transaction-dialog.component';
+import { filter, tap } from 'rxjs';
 
 @Component({
   selector: 'app-dialog',
@@ -39,7 +41,25 @@ export class DialogComponent {
       this.router.navigate([`transaction/${data.id}`]);
     });
   }
-  closeDialogWithData(): void {
-    this.dialogRef.close(this.data);
+  closeDialogWithData(type: string): void {
+    this.dialogRef.close(type);
+  }
+  openDeleteDialog(data: number) {
+    const dialogRef = this.dialog.open(DeleteTransactionDialogComponent, {
+      data: data,
+      panelClass: 'custom-dialog-container',
+      height: '20%',
+      width: '603px',
+    });
+    dialogRef
+      .afterClosed()
+      .pipe(
+        filter((result) => result),
+        tap((result) => {
+          this.data = result;
+          this.closeDialogWithData('delete');
+        })
+      )
+      .subscribe();
   }
 }
