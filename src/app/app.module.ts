@@ -46,6 +46,7 @@ import { TokenInterceptor } from './token.interceptor';
 import { DeleteTransactionDialogComponent } from './components/delete-transaction-dialog/delete-transaction-dialog.component';
 import { PiggyDialogComponent } from './components/piggy-dialog/piggy-dialog.component';
 import { EditPiggyDialogComponent } from './components/edit-piggy-dialog/edit-piggy-dialog.component';
+import { AddMoneyToPiggyDialogComponent } from './components/add-money-to-piggy-dialog/add-money-to-piggy-dialog.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { EditPiggyDialogComponent } from './components/edit-piggy-dialog/edit-pi
     DeleteTransactionDialogComponent,
     PiggyDialogComponent,
     EditPiggyDialogComponent,
+    AddMoneyToPiggyDialogComponent,
   ],
   imports: [
     BrowserModule,

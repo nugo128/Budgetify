@@ -6,6 +6,7 @@ import {
 } from '@angular/material/dialog';
 import { IPiggy } from '../../models/piggy';
 import { EditPiggyDialogComponent } from '../edit-piggy-dialog/edit-piggy-dialog.component';
+import { AddMoneyToPiggyDialogComponent } from '../add-money-to-piggy-dialog/add-money-to-piggy-dialog.component';
 
 @Component({
   selector: 'app-piggy-dialog',
@@ -23,6 +24,21 @@ export class PiggyDialogComponent {
     console.log(data);
     const dialogRef = this.dialog.open(EditPiggyDialogComponent, {
       data: data,
+      autoFocus: false,
+      panelClass: 'custom-dialog-container',
+      position: {
+        top: '0px',
+        right: '0px',
+      },
+      height: '100%',
+      width: '603px',
+    });
+  }
+  openAddMoneyToPiggyDialog(data: IPiggy) {
+    console.log(data);
+    const dialogRef = this.dialog.open(AddMoneyToPiggyDialogComponent, {
+      data: data,
+      autoFocus: false,
       panelClass: 'custom-dialog-container',
       position: {
         top: '0px',
