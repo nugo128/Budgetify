@@ -7,6 +7,7 @@ import {
 import { IPiggy } from '../../models/piggy';
 import { EditPiggyDialogComponent } from '../edit-piggy-dialog/edit-piggy-dialog.component';
 import { AddMoneyToPiggyDialogComponent } from '../add-money-to-piggy-dialog/add-money-to-piggy-dialog.component';
+import { DeletePiggyDialogComponent } from '../delete-piggy-dialog/delete-piggy-dialog.component';
 
 @Component({
   selector: 'app-piggy-dialog',
@@ -45,6 +46,15 @@ export class PiggyDialogComponent {
         right: '0px',
       },
       height: '100%',
+      width: '603px',
+    });
+  }
+  openDeleteDialog(data: number) {
+    const dialogRef = this.dialog.open(DeletePiggyDialogComponent, {
+      data: data,
+      autoFocus: false,
+      panelClass: 'custom-dialog-container',
+      height: '25%',
       width: '603px',
     });
   }

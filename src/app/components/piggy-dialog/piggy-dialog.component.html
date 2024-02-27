@@ -29,7 +29,7 @@
             <h2>Saved Amount:</h2><span>{{data.saved_amount| number: '.2-2'}}$</span>
         </div>
     </div>
-    <button class="crash">
+    <button class="crash" (click)="openDeleteDialog(data)">
         <img class="piggy_img" src="../../../assets/images/piggy_bank.png" alt=""> <h2>Crash</h2></button>
 </mat-dialog-content>
 <mat-dialog-actions>

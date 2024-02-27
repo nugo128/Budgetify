@@ -47,6 +47,7 @@ import { DeleteTransactionDialogComponent } from './components/delete-transactio
 import { PiggyDialogComponent } from './components/piggy-dialog/piggy-dialog.component';
 import { EditPiggyDialogComponent } from './components/edit-piggy-dialog/edit-piggy-dialog.component';
 import { AddMoneyToPiggyDialogComponent } from './components/add-money-to-piggy-dialog/add-money-to-piggy-dialog.component';
+import { DeletePiggyDialogComponent } from './components/delete-piggy-dialog/delete-piggy-dialog.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { AddMoneyToPiggyDialogComponent } from './components/add-money-to-piggy-
     PiggyDialogComponent,
     EditPiggyDialogComponent,
     AddMoneyToPiggyDialogComponent,
+    DeletePiggyDialogComponent,
   ],
   imports: [
     BrowserModule,
