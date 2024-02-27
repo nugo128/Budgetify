@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
+    private authService: AuthService,
     private router: Router
   ) {
     this.registerForm = this.fb.group({
@@ -28,13 +29,11 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       const formData = this.registerForm.value;
       console.log(formData);
-      this.http
-        .post('http://127.0.0.1:8000/api/signup', formData)
-        .subscribe((responseData) => {
-          console.log(responseData);
-          localStorage.setItem('token', responseData['token']);
-          this.router.navigate(['/main']);
-        });
+      this.authService.register(formData).subscribe((responseData) => {
+        console.log(responseData);
+        localStorage.setItem('token', responseData['token']);
+        this.router.navigate(['/']);
+      });
     }
   }
 }

@@ -1,5 +1,64 @@
 .main_page {
   background-color: #eceded;
-  height: 100vh;
+  height: max-content;
   padding: 0px 52px;
+  display: flex;
+  justify-content: space-between;
+}
+.accounts {
+  width: 405px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 20px;
+  height: 100vh;
+}
+.income-expenses {
+  display: flex;
+  width: 250px;
+  background-color: white;
+  padding: 6px 10px;
+  gap: 5px;
+  align-items: center;
+  border-radius: 10px;
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+}
+.transaction_date {
+  display: flex;
+  gap: 6px;
+  margin: 10px 0 10px 20px;
+}
+.transaction_date h2 {
+  color: #474747;
+  font-family: "Space Grotesk";
+  font-size: 18px;
+  line-height: 23px;
+  text-align: left;
+}
+.transaction_cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+.add-piggy {
+  margin-top: 70%;
+}
+.add-piggy svg {
+  background-color: white;
+  border-radius: 50%;
+  padding: 4px;
+}
+::ng-deep .mat-mdc-simple-snack-bar {
+  background-color: #1aa103;
+  position: absolute;
+  left: 600px;
+  top: 40px;
+  width: 700px;
+  border-radius: 10px;
+}
+::ng-deep .mat-mdc-snack-bar-action span {
+  color: white;
 }

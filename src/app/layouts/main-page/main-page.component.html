@@ -1,4 +1,59 @@
 <div class="main_page">
-    <app-card cardType="Debit card" amount="5,356.18" currency="$" [selected]="true"></app-card>
+    <div class="cards">
+        <app-card cardType="Debit card" amount="5,356.18" currency="$" [selected]="true"></app-card>
     <app-card cardType="Credit card" amount="3,356.18" currency="€" [selected]="false"></app-card>
+    </div>
+    <div class="transactions">
+        <app-search></app-search>
+        <div class="transaction_date">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect y="0.5" width="24" height="24" fill="url(#pattern0)" fill-opacity="0.7"/>
+                <defs>
+                <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                <use xlink:href="#image0_44_199" transform="scale(0.005)"/>
+                </pattern>
+                <image id="image0_44_199" width="200" height="200" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAABShJREFUeJzt3cuKHFUAx+F/XHghCBJwo2YSNxISTSTiRgUFX0DwCXwAwTeICy8Ln0RcqElQ8BZ3gogustFEk0BWXsAIMxPiJi7KYBIzJ1PddfpUVX8fnGWfrjpzftNJd09VAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9HM8yZdJriW5bjQZm0k+SLJxl59VX68m+X0Xz/9bklcGfu5ZOJZkK+03iNGNy0keLv7E+tlNHDfGrwM+72x8kvabwrh1vFf8ifXT97knaU/FubeTPFBxfvr7PskzA83Vd9PX3GvV3FNxbnGMz97WBzA1NQOByRMIFAgECmoGcrXi3Cxms/UBTE3NQM5UnJvFfNX6AKam5ltvTyX5Jt45GYvL6b7Z8MdA83mbd0lnk7yQ5PN0XzWhjc0k7yd5LsPFsTYmWTWj4BUE1p1AoEAgUCAQKBAIFAgECgQCBQKBAoFAgUCgQCBQIBAoEAgUCAQKBAIFAoECgUCBQKBAIFBQO5Bn013+5++0v7L51Ma1dPdWOd571ZmEp9Nd4b31Rpv62EpytOfar0Lf8+A2n6b95prLON1z7VdhLQJxf5Bp2M74LsDXd9NP8rI/NQ96sr81RmpsG2wtAvEuFhQIBAoEAgXuDzINW60PYF3VDOTrinOvmzOtD4DhHU33m6/1ZwhTH5tJnuy59quwFp+D1HY83dclrqX9RpvauJbksyTHeq/6aqxFIJN8b5pR6LvpJ7nXvIsFBQKBAoFAgUCgQCBQIBAoEAgUCAQKBAIFAoECgUCBQKBAIFAgECgQCBQIBAoEAgUCWW8vJ3ktyb7WB3IH+9Id24utD4T19G7++3vxX5Js9Hx8zb9J30hy4abHnuj5+Mk4nORU5nkbhK0kJ5McGmy1VufmOBaNpFYgt8dxY7zZY45JOJzkr7TfyLXHlUwrkney87n0iaRGIDvFMctITqX95l3V+GigNavt7dz9XC5kd5EMHciBlOOYXSRz/GfVTmNzoDWraTdx9IlkyEB2G8esImm9aVc9xuyt9D+fu0Uy1Pr0jePGOLHrsx+p1htWIJ2Xsvg5XUi3ge9kiPU5kOTiEsf3fJ+FWITPQeZvpw2+G4+nu3D2MnPs5EC6C5wfXHKOyWr9G90rSOehJOez3Lnd6ZVkmfVZ9pXjepIfkzy48KqMwDpd2X3s/0l/LMnPWe4cL+bWSBYN5GCWj+OnJI8suyitnUz7jbuq8eFAa1bT0JEsEsjBJJeWPIZZxJF0H55dSfvNW3v8meSJgdastiEj6fu4gxHH/xxK9yHaZtpv5KHHZrpXjqnEccNQkfR9zKUln3N2cTBeQ0SyyiEOVm4qkYiDZvZn3JGcizhobKyRiIPRGFsk4mB0xhKJOBit/en+aEocsINWkZxL8ugKzg+WtupIxMHkrCoScTBZtSMRB5NXKxJxMBtDR3I+4mBmNjJMJOJgtpaNRBzM3qKRiIO10TcScbB2dhuJOFhb+5Oczc5x/BBxsObuS/JGku+SXP13fJvk9ST3NjyuSTiS5HS6Rav1aWzfsZ3p3teDGTmScd8fZGr39WBmTqd9BHcbH1c7e2ZhT8W5rya5v+L8Q9hOsrf1QTBeNQO5XnHuIdVcAybO7Q+gQCBQIBAoqBnI1YpzD2Wr9QEwbjUD+aLi3EP5vPUBsL7Gfn+QKd3Xg5k6lO7DuDHdjm2q9/UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYwD99/Cq4IqpvVAAAAABJRU5ErkJggg=="/>
+                </defs>
+                </svg>
+                <h2>Transaction date</h2>
+        </div>
+        <div class="transaction_cards" *ngFor="let transaction of transactions" mat-button (click)="openDialog(transaction)" [routerLink]="'transaction/'+transaction.id">
+<app-transaction [category]="transaction.category['category1']" [title]="transaction.title" [description]="transaction.description" [date]="transaction.date" [author]="transaction.author" [transactionType]="transaction.transaction_type" [amount]="transaction.amount"></app-transaction>
+        </div>
+    </div>
+    <div class="accounts">
+        <div class="income-expenses">
+            <svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="17.5" cy="17.7854" r="17.5" fill="#21C206"/>
+                <path d="M17.2929 25.9925C17.6834 26.383 18.3166 26.383 18.7071 25.9925L25.0711 19.6285C25.4616 19.238 25.4616 18.6049 25.0711 18.2143C24.6805 17.8238 24.0474 17.8238 23.6569 18.2143L18 23.8712L12.3431 18.2143C11.9526 17.8238 11.3195 17.8238 10.9289 18.2143C10.5384 18.6049 10.5384 19.238 10.9289 19.6285L17.2929 25.9925ZM17 8.2854V25.2854H19V8.2854H17Z" fill="white"/>
+                </svg>
+                
+            <h2>Income</h2>
+        </div>
+        <div class="income-expenses">
+            <svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="17.5" cy="18.2854" r="17.5" fill="#EE3F19"/>
+                <path d="M18.7071 10.0783C18.3166 9.68777 17.6834 9.68777 17.2929 10.0783L10.9289 16.4423C10.5384 16.8328 10.5384 17.4659 10.9289 17.8565C11.3195 18.247 11.9526 18.247 12.3431 17.8565L18 12.1996L23.6569 17.8565C24.0474 18.247 24.6805 18.247 25.0711 17.8565C25.4616 17.4659 25.4616 16.8328 25.0711 16.4423L18.7071 10.0783ZM19 27.7854L19 10.7854H17L17 27.7854H19Z" fill="white"/>
+                </svg>
+                
+                
+            <h2>Expences</h2>
+        </div>
+        <app-add-button buttonText="Add Transaction"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="17.5533" r="17.5" fill="white"/>
+            <path d="M16.38 26.4533V19.4933H9.5V16.6133H16.38V9.65334H19.42V16.6133H26.3V19.4933H19.42V26.4533H16.38Z" fill="#86C9CF"/>
+            </svg>
+            </app-add-button>
+        <app-add-button buttonText="Add Account"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="17.5533" r="17.5" fill="white"/>
+            <path d="M16.38 26.4533V19.4933H9.5V16.6133H16.38V9.65334H19.42V16.6133H26.3V19.4933H19.42V26.4533H16.38Z" fill="#86C9CF"/>
+            </svg>
+            </app-add-button>
+            <app-add-button class="add-piggy" buttonText="Add Piggy Bank"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000" viewBox="0 0 256 256"><path d="M192,116a12,12,0,1,1-12-12A12,12,0,0,1,192,116ZM152,64H112a8,8,0,0,0,0,16h40a8,8,0,0,0,0-16Zm96,48v32a24,24,0,0,1-24,24h-2.36l-16.21,45.38A16,16,0,0,1,190.36,224H177.64a16,16,0,0,1-15.07-10.62L160.65,208h-57.3l-1.92,5.38A16,16,0,0,1,86.36,224H73.64a16,16,0,0,1-15.07-10.62L46,178.22a87.69,87.69,0,0,1-21.44-48.38A16,16,0,0,0,16,144a8,8,0,0,1-16,0,32,32,0,0,1,24.28-31A88.12,88.12,0,0,1,112,32H216a8,8,0,0,1,0,16H194.61a87.93,87.93,0,0,1,30.17,37c.43,1,.85,2,1.25,3A24,24,0,0,1,248,112Zm-16,0a8,8,0,0,0-8-8h-3.66a8,8,0,0,1-7.64-5.6A71.9,71.9,0,0,0,144,48H112A72,72,0,0,0,58.91,168.64a8,8,0,0,1,1.64,2.71L73.64,208H86.36l3.82-10.69A8,8,0,0,1,97.71,192h68.58a8,8,0,0,1,7.53,5.31L177.64,208h12.72l18.11-50.69A8,8,0,0,1,216,152h8a8,8,0,0,0,8-8Z"></path></svg></app-add-button>
+            <div class="piggy_banks">
+                <app-piggy-bank [title]="'Car'" [currentAmount]="730.33" [fullAmount]="1200.20"></app-piggy-bank>
+                <app-piggy-bank [title]="'House'" [currentAmount]="2780.33" [fullAmount]="9200.20"></app-piggy-bank>
+            </div>
+    </div>
+
 </div>

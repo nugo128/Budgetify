@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,8 @@ export class LoginComponent {
   loginForm: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.loginForm = this.fb.group({
       email: [''],
@@ -25,13 +26,11 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const formData = this.loginForm.value;
       console.log(formData);
-      this.http
-        .post('http://127.0.0.1:8000/api/login', formData)
-        .subscribe((responseData) => {
-          console.log(responseData);
-          localStorage.setItem('token', responseData['token']);
-          this.router.navigate(['/main']);
-        });
+      this.authService.login(formData).subscribe((responseData) => {
+        console.log(responseData);
+        localStorage.setItem('token', responseData['token']);
+        this.router.navigate(['/']);
+      });
     }
   }
 }

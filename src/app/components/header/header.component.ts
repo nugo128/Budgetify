@@ -1,5 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { IUser } from '../../models/user';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -7,18 +11,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent implements OnInit {
-  public user;
-  constructor(private http: HttpClient) {}
+  public user: IUser;
+  public currentUrl: string;
+  constructor(private userService: UserService) {}
   ngOnInit(): void {
-    this.http
-      .get('http://127.0.0.1:8000/api/user', {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      })
-      .subscribe((responseData) => {
-        console.log(responseData);
-        this.user = responseData;
-      });
+    this.userService.getUser().subscribe((responseData: IUser) => {
+      console.log(responseData);
+      this.user = responseData;
+    });
   }
 }
