@@ -44,6 +44,7 @@ import { AsyncPipe } from '@angular/common';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { TokenInterceptor } from './token.interceptor';
 import { DeleteTransactionDialogComponent } from './components/delete-transaction-dialog/delete-transaction-dialog.component';
+import { PiggyDialogComponent } from './components/piggy-dialog/piggy-dialog.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { DeleteTransactionDialogComponent } from './components/delete-transactio
     FormInputComponent,
     ChipsComponent,
     DeleteTransactionDialogComponent,
+    PiggyDialogComponent,
   ],
   imports: [
     BrowserModule,

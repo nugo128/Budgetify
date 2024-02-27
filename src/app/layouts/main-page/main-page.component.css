@@ -62,3 +62,10 @@
 ::ng-deep .mat-mdc-snack-bar-action span {
   color: white;
 }
+.piggy_img {
+  width: 55px;
+  height: 40px;
+}
+.piggy_bank:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,89 @@
+.percentage {
+  width: 100%;
+  height: 10px;
+  background-color: #fecee2;
+  border-radius: 6px;
+  margin-bottom: 30px;
+}
+.bar {
+  background-color: #ff76ae;
+  height: 10px;
+  border-radius: 6px;
+}
+.edit,
+.cross {
+  width: 36px;
+  height: 36px;
+}
+.title {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30px;
+}
+.svgs {
+  display: flex;
+  gap: 10px;
+}
+.percentage_bar_data {
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  color: "#373737";
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.goal,
+.goal_amount,
+.saved_amount {
+  padding: 14px 0;
+  display: flex;
+}
+
+.data h2 {
+  font-family: "Space Grotesk";
+  font-size: 24px;
+  font-weight: 700;
+  width: 250px;
+  color: #373737;
+  text-wrap: nowrap;
+}
+.data span {
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  color: #373737;
+}
+.goal,
+.goal_amount {
+  border-bottom: 1px solid black;
+}
+.crash {
+  display: flex;
+  gap: 10px;
+  background-color: #fecee2;
+  align-items: center;
+  padding: 4px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+.crash h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #373737;
+  padding-right: 20px;
+}
+.close {
+  margin-left: 87%;
+  margin-top: 20%;
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  color: #373737;
+}
+.piggy_img {
+  width: 65px;
+  height: 47px;
+}
