@@ -4,6 +4,8 @@ import {
   MatDialog,
   MatDialogRef,
 } from '@angular/material/dialog';
+import { IPiggy } from '../../models/piggy';
+import { EditPiggyDialogComponent } from '../edit-piggy-dialog/edit-piggy-dialog.component';
 
 @Component({
   selector: 'app-piggy-dialog',
@@ -16,4 +18,18 @@ export class PiggyDialogComponent {
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<PiggyDialogComponent>
   ) {}
+
+  openEditPiggyDialog(data: IPiggy) {
+    console.log(data);
+    const dialogRef = this.dialog.open(EditPiggyDialogComponent, {
+      data: data,
+      panelClass: 'custom-dialog-container',
+      position: {
+        top: '0px',
+        right: '0px',
+      },
+      height: '100%',
+      width: '603px',
+    });
+  }
 }

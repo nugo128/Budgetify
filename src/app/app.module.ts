@@ -45,6 +45,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { TokenInterceptor } from './token.interceptor';
 import { DeleteTransactionDialogComponent } from './components/delete-transaction-dialog/delete-transaction-dialog.component';
 import { PiggyDialogComponent } from './components/piggy-dialog/piggy-dialog.component';
+import { EditPiggyDialogComponent } from './components/edit-piggy-dialog/edit-piggy-dialog.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { PiggyDialogComponent } from './components/piggy-dialog/piggy-dialog.com
     ChipsComponent,
     DeleteTransactionDialogComponent,
     PiggyDialogComponent,
+    EditPiggyDialogComponent,
   ],
   imports: [
     BrowserModule,
