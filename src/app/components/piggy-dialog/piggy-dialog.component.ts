@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnDestroy } from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -14,7 +14,7 @@ import { DeletePiggyDialogComponent } from '../delete-piggy-dialog/delete-piggy-
   templateUrl: './piggy-dialog.component.html',
   styleUrl: './piggy-dialog.component.css',
 })
-export class PiggyDialogComponent {
+export class PiggyDialogComponent implements OnDestroy {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialog: MatDialog,
@@ -34,6 +34,15 @@ export class PiggyDialogComponent {
       height: '100%',
       width: '603px',
     });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+      if (result) {
+        this.data = result;
+      }
+    });
+  }
+  ngOnDestroy(): void {
+    this.dialogRef.close(this.data);
   }
   openAddMoneyToPiggyDialog(data: IPiggy) {
     console.log(data);

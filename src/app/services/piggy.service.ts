@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { BASE_API_URL } from '../global';
+import { IPiggy } from '../models/piggy';
 
 @Injectable({
   providedIn: 'root',
@@ -10,5 +11,8 @@ export class PiggyService {
 
   getPiggy() {
     return this.http.get(`${BASE_API_URL}/piggy`);
+  }
+  editPiggy(formData: IPiggy) {
+    return this.http.post(`${BASE_API_URL}/editPiggy`, formData);
   }
 }

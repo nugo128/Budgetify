@@ -79,5 +79,10 @@ export class MainPageComponent implements OnInit {
       height: '100%',
       width: '603px',
     });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+      const index = this.piggyBanks.findIndex((obj) => obj.id === result.id);
+      this.piggyBanks[index] = result;
+    });
   }
 }

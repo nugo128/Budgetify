@@ -12,7 +12,7 @@
                 </svg>
         </div>
         <div class="percentage">
-            <div class="bar" [ngStyle]="{'width': goalAmount ? savedAmount/goalAmount * 100+'%' : '100%'}"></div>
+            <div class="bar" [ngStyle]="{'width':savedAmount/goalAmount * 100 <= 100 ? savedAmount/goalAmount * 100+'%' : '100%'}"></div>
         </div>
 
     </div>

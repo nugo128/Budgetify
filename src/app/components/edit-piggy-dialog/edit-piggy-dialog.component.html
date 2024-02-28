@@ -6,15 +6,15 @@
       
   </div>
 <mat-dialog-content class="">
-  <form class="edit_form" action="">
-    <app-form-input [inputData]="data.goal" [placeholderText]="'Goal'" [required]="true"></app-form-input>
-    <app-form-input [inputData]="data.goal_amount" [placeholderText]="'Goal Amount'" [required]="true"></app-form-input>
+  <form class="edit_form" [formGroup]="editPiggyForm">
+    <app-form-input [inputData]="data.goal" formControlName="goal" [placeholderText]="'Goal'" [required]="true"></app-form-input>
+    <app-form-input [inputData]="data.goal_amount" formControlName="goal_amount" [placeholderText]="'Goal Amount'" [required]="true"></app-form-input>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
     <div class="buttons">
 
         <button mat-button mat-dialog-close>Close</button>
-        <app-add-button width="100"><p class="save">Save</p></app-add-button>
+        <app-add-button width="100"><p class="save" (click)="onSubmit()">Save</p></app-add-button>
     </div>
 </mat-dialog-actions>

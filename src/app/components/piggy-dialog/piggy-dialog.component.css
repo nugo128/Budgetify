@@ -87,3 +87,6 @@
   width: 65px;
   height: 47px;
 }
+.svgs svg {
+  cursor: pointer;
+}

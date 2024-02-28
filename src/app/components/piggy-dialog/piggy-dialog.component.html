@@ -15,7 +15,7 @@
 <mat-dialog-content class="">
     <p class="percentage_bar_data">{{data.saved_amount| number: '.2-2'}}/{{data.goal_amount| number: '.2-2'}}$</p>
     <div class="percentage">
-        <div class="bar" [ngStyle]="{'width': data.goal_amount ? data.saved_amount/data.goal_amount * 100+'%' : '100%'}"></div>
+        <div class="bar" [ngStyle]="{'width':data.saved_amount/data.goal_amount * 100 <= 100 ? data.saved_amount/data.goal_amount * 100+'%' : '100%'}"></div>
     </div>
 
     <div class="data">
