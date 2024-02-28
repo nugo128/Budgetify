@@ -15,4 +15,7 @@ export class PiggyService {
   editPiggy(formData: IPiggy) {
     return this.http.post(`${BASE_API_URL}/editPiggy`, formData);
   }
+  addMoneyToPiggy(formData: IPiggy) {
+    return this.http.post(`${BASE_API_URL}/addMoney`, formData);
+  }
 }

@@ -57,6 +57,12 @@ export class PiggyDialogComponent implements OnDestroy {
       height: '100%',
       width: '603px',
     });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+      if (result) {
+        this.data = result;
+      }
+    });
   }
   openDeleteDialog(data: number) {
     const dialogRef = this.dialog.open(DeletePiggyDialogComponent, {

@@ -6,17 +6,17 @@
   
 </div>
 <mat-dialog-content class="">
-<form class="edit_form" action="">
+<form class="edit_form" action="" [formGroup]="AddMoneyToPiggyForm">
 <app-form-input class="goal" [inputData]="data.goal" [placeholderText]="'Goal'" [required]="true"></app-form-input>
 <app-form-input class="amount" [inputData]="data.goal_amount" [placeholderText]="'Goal Amount'" [required]="true"></app-form-input>
-<app-form-input [inputData]="data.saved_amount" [placeholderText]="'Amount to save'" [required]="true"></app-form-input>
-<app-form-input [inputData]="'02.02.2022'" [placeholderText]="'Date'" [required]="true" inpitType="date"></app-form-input>
+<app-form-input [inputData]="data.saved_amount" formControlName="saved_amount"  [placeholderText]="'Amount to save'" [required]="true" inpitType="number"></app-form-input>
+<app-form-input [inputData]="data.date" formControlName="date"  [placeholderText]="'Date'" [required]="true" inpitType="date"></app-form-input>
 </form>
 </mat-dialog-content>
 <mat-dialog-actions>
 <div class="buttons">
 
     <button mat-button mat-dialog-close>Close</button>
-    <app-add-button width="100"><p class="save">Save</p></app-add-button>
+    <app-add-button width="100" (click)="onSubmit()"><p class="save">Save</p></app-add-button>
 </div>
 </mat-dialog-actions>
