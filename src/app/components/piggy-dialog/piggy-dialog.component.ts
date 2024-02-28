@@ -15,6 +15,7 @@ import { DeletePiggyDialogComponent } from '../delete-piggy-dialog/delete-piggy-
   styleUrl: './piggy-dialog.component.css',
 })
 export class PiggyDialogComponent implements OnDestroy {
+  delete: boolean = false;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialog: MatDialog,
@@ -22,7 +23,6 @@ export class PiggyDialogComponent implements OnDestroy {
   ) {}
 
   openEditPiggyDialog(data: IPiggy) {
-    console.log(data);
     const dialogRef = this.dialog.open(EditPiggyDialogComponent, {
       data: data,
       autoFocus: false,
@@ -35,17 +35,17 @@ export class PiggyDialogComponent implements OnDestroy {
       width: '603px',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       if (result) {
         this.data = result;
       }
     });
   }
   ngOnDestroy(): void {
-    this.dialogRef.close(this.data);
+    if (!this.delete) {
+      this.dialogRef.close(this.data);
+    }
   }
   openAddMoneyToPiggyDialog(data: IPiggy) {
-    console.log(data);
     const dialogRef = this.dialog.open(AddMoneyToPiggyDialogComponent, {
       data: data,
       autoFocus: false,
@@ -58,11 +58,13 @@ export class PiggyDialogComponent implements OnDestroy {
       width: '603px',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       if (result) {
         this.data = result;
       }
     });
+  }
+  closeDialogWithData(type: any): void {
+    this.dialogRef.close(type);
   }
   openDeleteDialog(data: number) {
     const dialogRef = this.dialog.open(DeletePiggyDialogComponent, {
@@ -71,6 +73,12 @@ export class PiggyDialogComponent implements OnDestroy {
       panelClass: 'custom-dialog-container',
       height: '25%',
       width: '603px',
+    });
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data) {
+        this.closeDialogWithData({ delete: data.id });
+        this.delete = true;
+      }
     });
   }
 }

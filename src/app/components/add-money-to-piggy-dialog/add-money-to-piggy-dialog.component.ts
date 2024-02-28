@@ -32,7 +32,6 @@ export class AddMoneyToPiggyDialogComponent {
   onSubmit() {
     if (this.AddMoneyToPiggyForm.valid) {
       this.formData = this.AddMoneyToPiggyForm.value;
-      console.log(this.formData);
       this.piggyService.addMoneyToPiggy(this.formData).subscribe((response) => {
         this.dialogRef.close(response);
       });

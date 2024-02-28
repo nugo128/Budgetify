@@ -31,10 +31,9 @@ export class EditPiggyDialogComponent {
   onSubmit() {
     if (this.editPiggyForm.valid) {
       this.formData = this.editPiggyForm.value;
-      console.log(this.formData);
+
       this.piggyService.editPiggy(this.formData).subscribe((response) => {
         this.dialogRef.close(response);
-        console.log(response);
       });
     }
   }

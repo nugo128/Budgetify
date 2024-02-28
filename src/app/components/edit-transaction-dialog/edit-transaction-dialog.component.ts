@@ -29,7 +29,6 @@ export class EditTransactionDialogComponent implements OnInit {
       transaction_type: [data.transaction_type],
       category: [data.category],
     });
-    console.log(data.date);
   }
   uploadedImageUrl: string | null = null;
 
@@ -37,12 +36,9 @@ export class EditTransactionDialogComponent implements OnInit {
     event['addedFiles'].map((item) => {
       this.images.push(URL.createObjectURL(item));
     });
-    console.log(this.images);
   }
 
   onFileRemoved(event: any): void {
-    console.log('File removed:', event);
-
     this.uploadedImageUrl = null;
   }
   ngOnInit(): void {

@@ -18,4 +18,7 @@ export class PiggyService {
   addMoneyToPiggy(formData: IPiggy) {
     return this.http.post(`${BASE_API_URL}/addMoney`, formData);
   }
+  crashPiggy(id: number) {
+    return this.http.delete(`${BASE_API_URL}/crashPiggy/${id}`);
+  }
 }

@@ -33,11 +33,9 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.transactionService.getTransactions().subscribe((responseData) => {
-      console.log(responseData['transactions']);
       this.transactions = responseData['transactions'];
     });
     this.piggyService.getPiggy().subscribe((response) => {
-      console.log(response['piggy']);
       this.piggyBanks = response['piggy'];
     });
   }
@@ -54,11 +52,9 @@ export class MainPageComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.transactionService.getTransactions().subscribe((responseData) => {
-        console.log(responseData['transactions']);
         this.transactions = responseData['transactions'];
       });
       this.router.navigate(['/']);
-      console.log(`Dialog result: ${result}`);
       if (result === 'delete') {
         this._snackBar.open('Transaction was successfully removed', 'Close', {
           horizontalPosition: this.horizontalPosition,
@@ -68,7 +64,6 @@ export class MainPageComponent implements OnInit {
     });
   }
   openPiggyDialog(data: IPiggy) {
-    console.log(data);
     const dialogRef = this.dialog.open(PiggyDialogComponent, {
       data: data,
       panelClass: 'custom-dialog-container',
@@ -80,9 +75,15 @@ export class MainPageComponent implements OnInit {
       width: '603px',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      const index = this.piggyBanks.findIndex((obj) => obj.id === result.id);
-      this.piggyBanks[index] = result;
+      if (result['delete']) {
+        const index = this.piggyBanks.findIndex(
+          (obj) => obj.id === result.delete
+        );
+        this.piggyBanks.splice(index, 1);
+      } else {
+        const index = this.piggyBanks.findIndex((obj) => obj.id === result.id);
+        this.piggyBanks[index] = result;
+      }
     });
   }
 }

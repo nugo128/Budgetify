@@ -15,11 +15,9 @@ export class DeleteTransactionDialogComponent {
   ) {}
 
   deleteTransaction() {
-    console.log(this.data);
     this.transactionService
       .deleteTransaction(this.data)
       .subscribe((response) => {
-        console.log(response);
         this.dialogRef.close(this.data);
       });
   }
