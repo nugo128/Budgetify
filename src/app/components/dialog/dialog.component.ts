@@ -47,6 +47,7 @@ export class DialogComponent {
   openDeleteDialog(data: number) {
     const dialogRef = this.dialog.open(DeleteTransactionDialogComponent, {
       data: data,
+      autoFocus: false,
       panelClass: 'custom-dialog-container',
       height: '20%',
       width: '603px',
