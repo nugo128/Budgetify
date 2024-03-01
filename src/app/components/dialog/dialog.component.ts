@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { EditTransactionDialogComponent } from '../edit-transaction-dialog/edit-transaction-dialog.component';
 import { DeleteTransactionDialogComponent } from '../delete-transaction-dialog/delete-transaction-dialog.component';
 import { filter, tap } from 'rxjs';
+import { ITransaction } from '../../models/transaction';
 
 @Component({
   selector: 'app-dialog',
@@ -16,13 +17,13 @@ import { filter, tap } from 'rxjs';
 })
 export class DialogComponent {
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: ITransaction,
     public dialog: MatDialog,
     public router: Router,
     public dialogRef: MatDialogRef<DialogComponent>
   ) {}
 
-  openEditDialog(data: any) {
+  openEditDialog(data: ITransaction) {
     const dialogRef = this.dialog.open(EditTransactionDialogComponent, {
       data: data,
       panelClass: 'custom-dialog-container',

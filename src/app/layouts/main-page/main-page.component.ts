@@ -14,6 +14,7 @@ import { IPiggy } from '../../models/piggy';
 import { PiggyDialogComponent } from '../../components/piggy-dialog/piggy-dialog.component';
 import { AccountService } from '../../services/account.service';
 import { AccountDialogComponent } from '../../components/account-dialog/account-dialog.component';
+import { IAccount } from '../../models/account';
 
 @Component({
   selector: 'app-main-page',
@@ -21,11 +22,11 @@ import { AccountDialogComponent } from '../../components/account-dialog/account-
   styleUrl: './main-page.component.css',
 })
 export class MainPageComponent implements OnInit {
-  public transactions: any;
+  public transactions: ITransaction[];
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  public piggyBanks: any;
-  public accounts: any;
+  public piggyBanks: IPiggy[];
+  public accounts: IAccount[];
   constructor(
     private transactionService: TransactionService,
     public dialog: MatDialog,
@@ -46,7 +47,7 @@ export class MainPageComponent implements OnInit {
       this.accounts = response['accounts'];
     });
   }
-  openDialog(data: any) {
+  openDialog(data: ITransaction) {
     const dialogRef = this.dialog.open(DialogComponent, {
       data: data,
       panelClass: 'custom-dialog-container',
@@ -84,8 +85,9 @@ export class MainPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result['delete']) {
         const index = this.piggyBanks.findIndex(
-          (obj) => obj.id === result.delete
+          (obj: IPiggy) => obj.id === result.delete
         );
+        this.accounts[0].balance += Number(this.piggyBanks[index].saved_amount);
         this.piggyBanks.splice(index, 1);
       } else {
         const index = this.piggyBanks.findIndex((obj) => obj.id === result.id);
@@ -93,8 +95,7 @@ export class MainPageComponent implements OnInit {
       }
     });
   }
-  openAccountDialog(data) {
-    console.log(data);
+  openAccountDialog(data: IAccount) {
     const dialogRef = this.dialog.open(AccountDialogComponent, {
       data: data,
       panelClass: 'custom-dialog-container',
@@ -106,7 +107,9 @@ export class MainPageComponent implements OnInit {
       width: '603px',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      const index = this.accounts.findIndex((obj) => obj.id === result.id);
+      const index = this.accounts.findIndex(
+        (obj: IAccount) => obj.id === result.id
+      );
       this.accounts[index] = result;
     });
   }
