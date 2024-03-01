@@ -12,6 +12,8 @@ import {
 import { PiggyService } from '../../services/piggy.service';
 import { IPiggy } from '../../models/piggy';
 import { PiggyDialogComponent } from '../../components/piggy-dialog/piggy-dialog.component';
+import { AccountService } from '../../services/account.service';
+import { AccountDialogComponent } from '../../components/account-dialog/account-dialog.component';
 
 @Component({
   selector: 'app-main-page',
@@ -23,12 +25,14 @@ export class MainPageComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   public piggyBanks: any;
+  public accounts: any;
   constructor(
     private transactionService: TransactionService,
     public dialog: MatDialog,
     public router: Router,
     private _snackBar: MatSnackBar,
-    public piggyService: PiggyService
+    public piggyService: PiggyService,
+    public accountService: AccountService
   ) {}
 
   ngOnInit(): void {
@@ -37,6 +41,9 @@ export class MainPageComponent implements OnInit {
     });
     this.piggyService.getPiggy().subscribe((response) => {
       this.piggyBanks = response['piggy'];
+    });
+    this.accountService.getAccounts().subscribe((response) => {
+      this.accounts = response['accounts'];
     });
   }
   openDialog(data: any) {
@@ -84,6 +91,23 @@ export class MainPageComponent implements OnInit {
         const index = this.piggyBanks.findIndex((obj) => obj.id === result.id);
         this.piggyBanks[index] = result;
       }
+    });
+  }
+  openAccountDialog(data) {
+    console.log(data);
+    const dialogRef = this.dialog.open(AccountDialogComponent, {
+      data: data,
+      panelClass: 'custom-dialog-container',
+      position: {
+        top: '0px',
+        right: '0px',
+      },
+      height: '100%',
+      width: '603px',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      const index = this.accounts.findIndex((obj) => obj.id === result.id);
+      this.accounts[index] = result;
     });
   }
 }

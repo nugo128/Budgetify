@@ -7,6 +7,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 60px;
+  cursor: pointer;
 }
 .card {
   padding-top: 20px;

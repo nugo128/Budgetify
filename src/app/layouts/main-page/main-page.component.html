@@ -1,7 +1,6 @@
 <div class="main_page">
     <div class="cards">
-        <app-card cardType="Debit card" amount="5,356.18" currency="$" [selected]="true"></app-card>
-    <app-card cardType="Credit card" amount="3,356.18" currency="€" [selected]="false"></app-card>
+        <app-card *ngFor="let account of accounts" (click)="openAccountDialog(account)" [cardType]="account.title" [amount]="account.balance" [currency]="account.currency" [selected]="account.id%2===1"></app-card>
     </div>
     <div class="transactions">
         <app-search></app-search>
