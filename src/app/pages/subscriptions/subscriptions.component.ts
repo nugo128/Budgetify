@@ -3,6 +3,7 @@ import { IAccount } from '../../models/account';
 import { AccountDialogComponent } from '../../components/account-dialog/account-dialog.component';
 import { AccountService } from '../../services/account.service';
 import { MatDialog } from '@angular/material/dialog';
+import { SubscriptionService } from '../../services/subscription.service';
 
 @Component({
   selector: 'app-subscriptions',
@@ -11,14 +12,20 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class SubscriptionsComponent {
   accounts: IAccount[];
+  subscriptions: any;
   constructor(
     public accountService: AccountService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public subscriptionService: SubscriptionService
   ) {}
 
   ngOnInit(): void {
     this.accountService.getAccounts().subscribe((response) => {
       this.accounts = response['accounts'];
+    });
+    this.subscriptionService.getSubscriptions().subscribe((response) => {
+      this.subscriptions = response['subscriptions'];
+      console.log(this.subscriptions);
     });
   }
   openAccountDialog(data: IAccount) {

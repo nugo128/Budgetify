@@ -52,6 +52,7 @@ import { AccountDialogComponent } from './components/account-dialog/account-dial
 import { EditAccountDialogComponent } from './components/edit-account-dialog/edit-account-dialog.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { MatSelectModule } from '@angular/material/select';
     DeletePiggyDialogComponent,
     AccountDialogComponent,
     EditAccountDialogComponent,
+    SubscriptionComponent,
   ],
   imports: [
     BrowserModule,

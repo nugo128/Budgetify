@@ -16,6 +16,7 @@
             </svg>
             <h2>Creation date</h2>
     </div>
+    <app-subscription *ngFor="let subscription of subscriptions" [date]="subscription.date_to" [amount]="subscription.amount" [title]="subscription.title" [category]="subscription.category['category1']"></app-subscription>
 
 </div>
 <div class="add">
