@@ -53,6 +53,7 @@ import { EditAccountDialogComponent } from './components/edit-account-dialog/edi
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { SubscriptionDialogComponent } from './components/subscription-dialog/subscription-dialog.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { SubscriptionComponent } from './components/subscription/subscription.co
     AccountDialogComponent,
     EditAccountDialogComponent,
     SubscriptionComponent,
+    SubscriptionDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { AccountDialogComponent } from '../../components/account-dialog/account-
 import { AccountService } from '../../services/account.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SubscriptionService } from '../../services/subscription.service';
+import { SubscriptionDialogComponent } from '../../components/subscription-dialog/subscription-dialog.component';
 
 @Component({
   selector: 'app-subscriptions',
@@ -25,7 +26,6 @@ export class SubscriptionsComponent {
     });
     this.subscriptionService.getSubscriptions().subscribe((response) => {
       this.subscriptions = response['subscriptions'];
-      console.log(this.subscriptions);
     });
   }
   openAccountDialog(data: IAccount) {
@@ -44,6 +44,18 @@ export class SubscriptionsComponent {
         (obj: IAccount) => obj.id === result.id
       );
       this.accounts[index] = result;
+    });
+  }
+  openSubscriptionDialog(data) {
+    const dialogRef = this.dialog.open(SubscriptionDialogComponent, {
+      data: data,
+      panelClass: 'custom-dialog-container',
+      position: {
+        top: '0px',
+        right: '0px',
+      },
+      height: '100%',
+      width: '603px',
     });
   }
 }
