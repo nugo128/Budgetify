@@ -6,6 +6,7 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { PiggyService } from '../../services/piggy.service';
+import { IPiggy } from '../../models/piggy';
 
 @Component({
   selector: 'app-edit-piggy-dialog',
@@ -15,7 +16,7 @@ import { PiggyService } from '../../services/piggy.service';
 export class EditPiggyDialogComponent {
   editPiggyForm: FormGroup;
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: IPiggy,
     private fb: FormBuilder,
     private piggyService: PiggyService,
     public dialog: MatDialog,
@@ -27,7 +28,7 @@ export class EditPiggyDialogComponent {
       goal_amount: [data.goal_amount],
     });
   }
-  formData: any = {};
+  formData: IPiggy;
   onSubmit() {
     if (this.editPiggyForm.valid) {
       this.formData = this.editPiggyForm.value;

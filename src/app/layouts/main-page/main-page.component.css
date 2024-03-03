@@ -13,6 +13,9 @@
   gap: 20px;
   height: 100vh;
 }
+.transactions {
+  width: 700px;
+}
 .income-expenses {
   display: flex;
   width: 250px;

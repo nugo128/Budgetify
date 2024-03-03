@@ -1,0 +1,62 @@
+.edit,
+.cross,
+.delete {
+  width: 36px;
+  height: 36px;
+}
+.title {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30px;
+}
+.svgs {
+  display: flex;
+  gap: 10px;
+}
+.name,
+.balance,
+.currency,
+.description {
+  padding: 14px 0;
+  display: flex;
+}
+
+.data h2 {
+  font-family: "Space Grotesk";
+  font-size: 24px;
+  font-weight: 700;
+  width: 250px;
+  color: #373737;
+  text-wrap: nowrap;
+}
+.data span {
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  color: #373737;
+}
+.name,
+.balance,
+.currency {
+  border-bottom: 1px solid black;
+}
+.close {
+  margin-left: 87%;
+  margin-top: 20%;
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  color: #373737;
+}
+.piggy_img {
+  width: 65px;
+  height: 47px;
+}
+.svgs svg {
+  cursor: pointer;
+}
+.desc {
+  max-width: 300px;
+}

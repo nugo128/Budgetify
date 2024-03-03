@@ -63,7 +63,7 @@ export class PiggyDialogComponent implements OnDestroy {
       }
     });
   }
-  closeDialogWithData(type: any): void {
+  closeDialogWithData(type: { delete: number }): void {
     this.dialogRef.close(type);
   }
   openDeleteDialog(data: number) {

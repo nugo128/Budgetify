@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TransactionService } from '../../services/transaction.service';
+import { ITransaction } from '../../models/transaction';
 
 @Component({
   selector: 'app-edit-transaction-dialog',
@@ -14,7 +15,7 @@ export class EditTransactionDialogComponent implements OnInit {
   receivedArray: string[] = [];
   public images: any = [];
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: ITransaction,
     private fb: FormBuilder,
     private transactionService: TransactionService,
     public dialogRef: MatDialogRef<EditTransactionDialogComponent>

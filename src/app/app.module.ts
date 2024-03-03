@@ -48,6 +48,10 @@ import { PiggyDialogComponent } from './components/piggy-dialog/piggy-dialog.com
 import { EditPiggyDialogComponent } from './components/edit-piggy-dialog/edit-piggy-dialog.component';
 import { AddMoneyToPiggyDialogComponent } from './components/add-money-to-piggy-dialog/add-money-to-piggy-dialog.component';
 import { DeletePiggyDialogComponent } from './components/delete-piggy-dialog/delete-piggy-dialog.component';
+import { AccountDialogComponent } from './components/account-dialog/account-dialog.component';
+import { EditAccountDialogComponent } from './components/edit-account-dialog/edit-account-dialog.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -76,6 +80,8 @@ import { DeletePiggyDialogComponent } from './components/delete-piggy-dialog/del
     EditPiggyDialogComponent,
     AddMoneyToPiggyDialogComponent,
     DeletePiggyDialogComponent,
+    AccountDialogComponent,
+    EditAccountDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,6 +103,8 @@ import { DeletePiggyDialogComponent } from './components/delete-piggy-dialog/del
     ReactiveFormsModule,
     AsyncPipe,
     NgxDropzoneModule,
+    MatSelectModule,
+    MatInputModule,
   ],
   providers: [
     AuthGuard,
