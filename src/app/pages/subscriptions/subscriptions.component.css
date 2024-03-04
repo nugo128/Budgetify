@@ -27,3 +27,6 @@
   align-items: end;
   gap: 20px;
 }
+.subscription:hover {
+  cursor: pointer;
+}

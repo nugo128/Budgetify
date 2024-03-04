@@ -12,4 +12,7 @@ export class SubscriptionService {
   getSubscriptions() {
     return this.http.get(`${BASE_API_URL}/subscription`);
   }
+  editSubscription(formData: any) {
+    return this.http.post(`${BASE_API_URL}/editSubscription`, formData);
+  }
 }

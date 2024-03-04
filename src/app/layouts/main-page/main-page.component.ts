@@ -45,6 +45,7 @@ export class MainPageComponent implements OnInit {
     });
     this.accountService.getAccounts().subscribe((response) => {
       this.accounts = response['accounts'];
+      this.accounts[0].active = true;
     });
   }
   openDialog(data: ITransaction) {
@@ -106,6 +107,13 @@ export class MainPageComponent implements OnInit {
       height: '100%',
       width: '603px',
     });
+    const index = this.accounts.findIndex(
+      (obj: IAccount) => obj.id === data.id
+    );
+    this.accounts.forEach((item) => {
+      item.active = false;
+    });
+    this.accounts[index].active = true;
     dialogRef.afterClosed().subscribe((result) => {
       const index = this.accounts.findIndex(
         (obj: IAccount) => obj.id === result.id

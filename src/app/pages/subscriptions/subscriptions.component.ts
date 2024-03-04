@@ -5,6 +5,7 @@ import { AccountService } from '../../services/account.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SubscriptionService } from '../../services/subscription.service';
 import { SubscriptionDialogComponent } from '../../components/subscription-dialog/subscription-dialog.component';
+import { ISubscription } from '../../models/subscription';
 
 @Component({
   selector: 'app-subscriptions',
@@ -13,7 +14,7 @@ import { SubscriptionDialogComponent } from '../../components/subscription-dialo
 })
 export class SubscriptionsComponent {
   accounts: IAccount[];
-  subscriptions: any;
+  subscriptions: ISubscription[];
   constructor(
     public accountService: AccountService,
     public dialog: MatDialog,
@@ -26,6 +27,7 @@ export class SubscriptionsComponent {
     });
     this.subscriptionService.getSubscriptions().subscribe((response) => {
       this.subscriptions = response['subscriptions'];
+      this.accounts[0].active = true;
     });
   }
   openAccountDialog(data: IAccount) {
@@ -39,6 +41,13 @@ export class SubscriptionsComponent {
       height: '100%',
       width: '603px',
     });
+    const index = this.accounts.findIndex(
+      (obj: IAccount) => obj.id === data.id
+    );
+    this.accounts.forEach((item) => {
+      item.active = false;
+    });
+    this.accounts[index].active = true;
     dialogRef.afterClosed().subscribe((result) => {
       const index = this.accounts.findIndex(
         (obj: IAccount) => obj.id === result.id
@@ -46,7 +55,7 @@ export class SubscriptionsComponent {
       this.accounts[index] = result;
     });
   }
-  openSubscriptionDialog(data) {
+  openSubscriptionDialog(data: ISubscription) {
     const dialogRef = this.dialog.open(SubscriptionDialogComponent, {
       data: data,
       panelClass: 'custom-dialog-container',
@@ -56,6 +65,12 @@ export class SubscriptionsComponent {
       },
       height: '100%',
       width: '603px',
+    });
+    dialogRef.afterClosed().subscribe((result: ISubscription) => {
+      const index = this.subscriptions.findIndex(
+        (obj: ISubscription) => obj.id === result.id
+      );
+      this.subscriptions[index] = result;
     });
   }
 }

@@ -4,4 +4,5 @@ export interface IAccount {
   description: string;
   title: string;
   currency: string;
+  active: boolean;
 }

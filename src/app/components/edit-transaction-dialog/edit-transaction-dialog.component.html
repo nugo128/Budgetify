@@ -25,8 +25,8 @@
         <p>Category<span>*</span></p>
         <app-chips [existingCategory]="data.category" (categoryChange)="onCategoryChange($event)" (arrayEmitter)="handleArray($event)"></app-chips>
     </div>
-    <app-form-input formControlName="amount" [placeholderText]="'Amount'" [inputData]="data.amount" [required]="true" inpitType="number"></app-form-input>
-    <app-form-input formControlName="date" [placeholderText]="'Payment Date'" [inputData]="data.date" [required]="true" [inpitType]="'date'"></app-form-input>
+    <app-form-input formControlName="amount" [placeholderText]="'Amount'" [inputData]="data.amount" [required]="true" inputType="number"></app-form-input>
+    <app-form-input formControlName="date" [placeholderText]="'Payment Date'" [inputData]="data.date" [required]="true" [inputType]="'date'"></app-form-input>
     <app-form-input formControlName="author" [placeholderText]="'Payee'" [inputData]="data.author" [required]="false"></app-form-input>
     <app-form-input formControlName="description" [placeholderText]="'Description'" [inputData]="data.description" [required]="false"></app-form-input>
     <div class="images">

@@ -1,6 +1,6 @@
 <div class="subscription-page">     
     <div class="cards">
-    <app-card *ngFor="let account of accounts" (click)="openAccountDialog(account)" [cardType]="account.title" [amount]="account.balance" [currency]="account.currency" [selected]="account.id%2===1"></app-card>
+    <app-card *ngFor="let account of accounts" (click)="openAccountDialog(account)" [cardType]="account.title" [amount]="account.balance" [currency]="account.currency" [selected]="account.active"></app-card>
 </div>
 <div class="subscriptions">
     <app-search></app-search>
@@ -16,7 +16,7 @@
             </svg>
             <h2>Creation date</h2>
     </div>
-    <app-subscription *ngFor="let subscription of subscriptions" [date]="subscription.date_to" [amount]="subscription.amount" [title]="subscription.title" [category]="subscription.category['category1']" (click)="openSubscriptionDialog(subscription)"></app-subscription>
+    <app-subscription class="subscription" *ngFor="let subscription of subscriptions" [date]="subscription.date_to" [amount]="subscription.amount" [title]="subscription.title" [category]="subscription.category['category1']" (click)="openSubscriptionDialog(subscription)"></app-subscription>
 
 </div>
 <div class="add">

@@ -54,6 +54,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
 import { SubscriptionDialogComponent } from './components/subscription-dialog/subscription-dialog.component';
+import { EditSubscriptionComponent } from './components/edit-subscription/edit-subscription.component';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +90,8 @@ import { SubscriptionDialogComponent } from './components/subscription-dialog/su
     EditAccountDialogComponent,
     SubscriptionComponent,
     SubscriptionDialogComponent,
+    EditSubscriptionComponent,
+    DatePickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -109,10 +115,12 @@ import { SubscriptionDialogComponent } from './components/subscription-dialog/su
     NgxDropzoneModule,
     MatSelectModule,
     MatInputModule,
+    MatDatepickerModule,
   ],
   providers: [
     AuthGuard,
     provideAnimationsAsync(),
+    provideNativeDateAdapter(),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
