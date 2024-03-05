@@ -4,6 +4,7 @@ import { AccountService } from '../../services/account.service';
 import { AccountDialogComponent } from '../../components/account-dialog/account-dialog.component';
 import { IAccount } from '../../models/account';
 import { MatDialog } from '@angular/material/dialog';
+import { ObligatoryService } from '../../services/obligatory.service';
 
 @Component({
   selector: 'app-obligatory',
@@ -13,14 +14,20 @@ import { MatDialog } from '@angular/material/dialog';
 export class ObligatoryComponent implements OnInit {
   subscriptions: ISubscription[];
   accounts: any;
+  obligatories: any;
   constructor(
     public accountService: AccountService,
+    public obligatoryService: ObligatoryService,
     public dialog: MatDialog
   ) {}
   ngOnInit(): void {
     this.accountService.getAccounts().subscribe((response) => {
       this.accounts = response['accounts'];
       this.accounts[0].active = true;
+    });
+    this.obligatoryService.get().subscribe((response) => {
+      console.log(response);
+      this.obligatories = response['obligatory'];
     });
   }
 

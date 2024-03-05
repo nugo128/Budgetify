@@ -58,6 +58,7 @@ import { EditSubscriptionComponent } from './components/edit-subscription/edit-s
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { ObligatoryComponentComponent } from './components/obligatory-component/obligatory-component.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
     SubscriptionDialogComponent,
     EditSubscriptionComponent,
     DatePickerComponent,
+    ObligatoryComponentComponent,
   ],
   imports: [
     BrowserModule,

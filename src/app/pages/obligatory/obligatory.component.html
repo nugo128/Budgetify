@@ -16,7 +16,8 @@
             </svg>
             <h2>Creation date</h2>
     </div>
-<!-- obl comp -->
+
+    <app-obligatory-component *ngFor="let obligatory of obligatories" [title]="obligatory.title" [date_to]="obligatory.date_to" [date_from]="obligatory.date_from" [amount]="obligatory.amount"></app-obligatory-component>
 
 </div>
 <div class="add">
