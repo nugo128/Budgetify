@@ -1,6 +1,6 @@
 <div class="main_page">
     <div class="cards">
-        <app-card *ngFor="let account of accounts" (click)="openAccountDialog(account)" [cardType]="account.title" [amount]="account.balance" [currency]="account.currency" [selected]="account.id%2===1"></app-card>
+        <app-card *ngFor="let account of accounts" (click)="openAccountDialog(account)" [cardType]="account.title" [amount]="account.balance" [currency]="account.currency" [selected]="account.active"></app-card>
     </div>
     <div class="transactions">
         <app-search></app-search>
