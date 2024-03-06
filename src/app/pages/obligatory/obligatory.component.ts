@@ -5,6 +5,7 @@ import { AccountDialogComponent } from '../../components/account-dialog/account-
 import { IAccount } from '../../models/account';
 import { MatDialog } from '@angular/material/dialog';
 import { ObligatoryService } from '../../services/obligatory.service';
+import { ObligatoryDialogComponent } from '../../components/obligatory-dialog/obligatory-dialog.component';
 
 @Component({
   selector: 'app-obligatory',
@@ -54,6 +55,18 @@ export class ObligatoryComponent implements OnInit {
         (obj: IAccount) => obj.id === result.id
       );
       this.accounts[index] = result;
+    });
+  }
+  openObligatoryDialog(data: any) {
+    const dialogRef = this.dialog.open(ObligatoryDialogComponent, {
+      data: data,
+      panelClass: 'custom-dialog-container',
+      position: {
+        top: '0px',
+        right: '0px',
+      },
+      height: '100%',
+      width: '603px',
     });
   }
 }

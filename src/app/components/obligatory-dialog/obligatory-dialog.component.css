@@ -1,0 +1,66 @@
+.close {
+  margin-left: 87%;
+  margin-top: 20%;
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  color: #373737;
+}
+.svgs {
+  display: flex;
+  gap: 10px;
+}
+.edit,
+.cross {
+  width: 36px;
+  height: 36px;
+}
+.title {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30px;
+}
+.name {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+.name h2 {
+  font-family: "Space Grotesk";
+  font-size: 24px;
+  font-weight: 400;
+  color: #373737;
+}
+.name h3 {
+  font-family: "Space Grotesk";
+  font-size: 24px;
+  font-weight: 400;
+  color: #ee3f19;
+}
+.data h2 {
+  font-family: "Space Grotesk";
+  font-size: 24px;
+  font-weight: 700;
+  width: 250px;
+  color: #373737;
+  text-wrap: nowrap;
+}
+.data span {
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  color: #373737;
+}
+.dates {
+  margin-top: 20px;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+.dates,
+.description {
+  padding: 14px 0;
+  display: flex;
+}

@@ -17,7 +17,7 @@
             <h2>Creation date</h2>
     </div>
 
-    <app-obligatory-component *ngFor="let obligatory of obligatories" [title]="obligatory.title" [date_to]="obligatory.date_to" [date_from]="obligatory.date_from" [amount]="obligatory.amount"></app-obligatory-component>
+    <app-obligatory-component class="obligatory_comp" *ngFor="let obligatory of obligatories" (click)="openObligatoryDialog(obligatory)" [title]="obligatory.title" [date_to]="obligatory.date_to" [date_from]="obligatory.date_from" [amount]="obligatory.amount"></app-obligatory-component>
 
 </div>
 <div class="add">

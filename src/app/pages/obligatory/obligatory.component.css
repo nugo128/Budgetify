@@ -30,3 +30,6 @@
 .subscription:hover {
   cursor: pointer;
 }
+.obligatory_comp:hover {
+  cursor: pointer;
+}
