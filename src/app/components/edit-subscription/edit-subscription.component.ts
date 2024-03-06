@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SubscriptionService } from '../../services/subscription.service';
 import { ISubscription } from '../../models/subscription';
+import { ObligatoryService } from '../../services/obligatory.service';
+import { IObligatory } from '../../models/obligatory';
 
 @Component({
   selector: 'app-edit-subscription',
@@ -34,7 +36,7 @@ export class EditSubscriptionComponent {
     this.editSubscriptionForm.get('category').setValue(categories);
   }
 
-  formData: any = {};
+  formData: ISubscription;
 
   handleArray(array: string[]) {
     this.receivedArray = array;
@@ -47,10 +49,7 @@ export class EditSubscriptionComponent {
   onSubmit() {
     if (this.editSubscriptionForm.valid) {
       this.formData = this.editSubscriptionForm.value;
-
-      console.log(this.editSubscriptionForm.value.date.start);
-
-      if (this.editSubscriptionForm.value.dat) {
+      if (this.editSubscriptionForm.value.date.start) {
         const startDate = new Date(this.editSubscriptionForm.value.date.start)
           .toISOString()
           .split('T')[0];

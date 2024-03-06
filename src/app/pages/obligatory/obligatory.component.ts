@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ISubscription } from '../../models/subscription';
 import { AccountService } from '../../services/account.service';
 import { AccountDialogComponent } from '../../components/account-dialog/account-dialog.component';
 import { IAccount } from '../../models/account';
 import { MatDialog } from '@angular/material/dialog';
 import { ObligatoryService } from '../../services/obligatory.service';
 import { ObligatoryDialogComponent } from '../../components/obligatory-dialog/obligatory-dialog.component';
+import { IObligatory } from '../../models/obligatory';
 
 @Component({
   selector: 'app-obligatory',
@@ -13,8 +13,7 @@ import { ObligatoryDialogComponent } from '../../components/obligatory-dialog/ob
   styleUrl: './obligatory.component.css',
 })
 export class ObligatoryComponent implements OnInit {
-  subscriptions: ISubscription[];
-  accounts: any;
+  accounts: IAccount[];
   obligatories: any;
   constructor(
     public accountService: AccountService,
@@ -27,7 +26,6 @@ export class ObligatoryComponent implements OnInit {
       this.accounts[0].active = true;
     });
     this.obligatoryService.get().subscribe((response) => {
-      console.log(response);
       this.obligatories = response['obligatory'];
     });
   }
@@ -57,7 +55,7 @@ export class ObligatoryComponent implements OnInit {
       this.accounts[index] = result;
     });
   }
-  openObligatoryDialog(data: any) {
+  openObligatoryDialog(data: IObligatory) {
     const dialogRef = this.dialog.open(ObligatoryDialogComponent, {
       data: data,
       panelClass: 'custom-dialog-container',
@@ -67,6 +65,12 @@ export class ObligatoryComponent implements OnInit {
       },
       height: '100%',
       width: '603px',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      const index = this.obligatories.findIndex(
+        (obj: IAccount) => obj.id === result.id
+      );
+      this.obligatories[index] = result;
     });
   }
 }
