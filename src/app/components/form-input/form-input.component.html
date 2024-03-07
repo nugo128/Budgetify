@@ -1,5 +1,5 @@
-<div class="password-input-container">
-    <label>{{placeholderText}}<span *ngIf="required">*</span></label>
-    <input (input)="onChange($event.target.value)" [value]="inputData" [type]="inputType" />
-</div>
+<mat-form-field appearance="outline">
+    <mat-label>{{ placeholderText}} <span *ngIf="required">*</span></mat-label>
+    <input matInput [placeholder]="placeholderText" (input)="onChange($event.target.value)"  [value]="inputData" [type]="inputType">
+</mat-form-field>
   

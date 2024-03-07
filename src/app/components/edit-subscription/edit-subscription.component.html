@@ -5,15 +5,10 @@
 <mat-dialog-content class="content">
     <form [formGroup]="editSubscriptionForm" (ngSubmit)="onSubmit()" class="edit_form">
      <app-form-input formControlName="title" [placeholderText]="'Title'" [inputData]="data.title" [required]="true"></app-form-input>
-     <div class="chips">
-         <p>Categories<span>*</span></p>
+
          <app-chips [existingCategory]="data.category" (categoryChange)="onCategoryChange($event)" (arrayEmitter)="handleArray($event)"></app-chips>
-     </div>
      <app-form-input formControlName="amount" [placeholderText]="'Amount'" [inputData]="data.amount" [required]="true" inputType="number"></app-form-input>
-     <div class="dates_cont">
-        <p class="dates">Payment Dates<span>*</span></p>
         <app-date-picker formControlName="date" [start]="data.date_from" [end]="data.date_to"></app-date-picker>
-     </div>
      <app-form-input formControlName="description" [placeholderText]="'Description'" [inputData]="data.description" [required]="false"></app-form-input>
  <div class="buttons">
      <mat-dialog-actions>

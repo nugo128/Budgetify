@@ -1,4 +1,4 @@
-<div class="title"><h2 mat-dialog-title>Edit Piggy Bank</h2> <div class="svgs">
+<div class="title"><h2 mat-dialog-title>Edit Account</h2> <div class="svgs">
     <svg xmlns="http://www.w3.org/2000/svg" mat-dialog-close class="cross" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
       </svg>
@@ -8,8 +8,8 @@
 <mat-dialog-content class="">
 <form class="edit_form" [formGroup]="editAccountForm">
 <app-form-input [inputData]="data.title" formControlName="title" [placeholderText]="'Title'" [required]="true"></app-form-input>
-<p class="currency">Currency<span>*</span></p>
-<mat-form-field>
+<mat-form-field appearance="outline">
+  <mat-label>Currency <span class="required">*</span></mat-label>
     <mat-select name="currency" formControlName="currency">
       @for (currency of currencies; track currency) {
         <mat-option [value]="currency.value">{{currency.viewValue}}</mat-option>

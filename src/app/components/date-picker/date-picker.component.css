@@ -1,24 +1,6 @@
-.mat-mdc-form-field {
-  width: 571px;
-  border: 2px solid #0000001f;
-  padding: 2px;
-  border-radius: 3px;
-  background-color: white;
+span {
+  color: red;
 }
-::ng-deep .mat-date-range-input-container {
-  padding-top: 10px;
-  padding-left: 10px;
-}
-::ng-deep .mdc-line-ripple,
-::ng-deep .mat-mdc-form-field-subscript-wrapper {
-  display: none;
-}
-.mat-mdc-text-field-wrapper,
-.mat-mdc-form-field-infix {
-  height: 60px !important;
-  margin: auto 0 !important;
-}
-::ng-deep .mat-mdc-text-field-wrapper,
-::ng-deep .mat-mdc-form-field-infix {
-  background-color: white !important;
+mat-form-field {
+  width: 100%;
 }
