@@ -15,7 +15,6 @@
 .content {
   max-height: initial;
 }
-
 .add {
   margin-top: 5px;
   width: 80px;
@@ -37,27 +36,6 @@
 }
 .save {
   padding-left: 20px;
-}
-.chips {
-  border: 1px solid #37373780;
-  padding-bottom: -40px;
-  position: relative;
-  padding-top: 10px;
-  width: 575px;
-  border-radius: 3px;
-  height: fit-content;
-}
-.chips p {
-  position: absolute;
-  left: 20px;
-  top: -10px;
-  z-index: 99;
-  background-color: #fff;
-  color: #37373780;
-  padding: 0 5px;
-}
-.chips p span {
-  color: red;
 }
 .dates_cont {
   position: relative;

@@ -1,4 +1,5 @@
-<mat-form-field class="example-chip-list" (click)="emitEvent()">
+<mat-form-field class="example-chip-list" (click)="emitEvent()" appearance="outline">
+  <mat-label>Category<span>*</span></mat-label>
     <mat-chip-grid #chipGrid aria-label="category selection" class="categories">
       @for (category of categories; track category) {
         <mat-chip-row (removed)="remove(category)">
@@ -19,3 +20,8 @@
       }
     </mat-autocomplete>
   </mat-form-field>
+  <!-- <mat-form-field appearance="outline">
+    <mat-label>{{ placeholderText}}</mat-label>
+    <input matInput [placeholder]="placeholderText" (input)="onChange($event.target.value)"  [value]="inputData" [type]="inputType">
+</mat-form-field> -->
+  

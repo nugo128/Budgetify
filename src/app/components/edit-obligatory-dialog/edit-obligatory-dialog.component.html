@@ -1,13 +1,12 @@
 <div class="title">
-    <h2 mat-dialog-title>Edit Transaction</h2>
+    <h2 mat-dialog-title>Edit Obligatory</h2>
     <svg mat-dialog-close xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>
 </div>
 <mat-dialog-content class="content">
-    <form [formGroup]="editSubscriptionForm" (ngSubmit)="onSubmit()" class="edit_form">
+    <form [formGroup]="editObligatoryForm" (ngSubmit)="onSubmit()" class="edit_form">
      <app-form-input formControlName="title" [placeholderText]="'Title'" [inputData]="data.title" [required]="true"></app-form-input>
-
-         <app-chips [existingCategory]="data.category" (categoryChange)="onCategoryChange($event)" (arrayEmitter)="handleArray($event)"></app-chips>
      <app-form-input formControlName="amount" [placeholderText]="'Amount'" [inputData]="data.amount" [required]="true" inputType="number"></app-form-input>
+
         <app-date-picker formControlName="date" [start]="data.date_from" [end]="data.date_to"></app-date-picker>
      <app-form-input formControlName="description" [placeholderText]="'Description'" [inputData]="data.description" [required]="false"></app-form-input>
  <div class="buttons">

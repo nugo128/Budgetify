@@ -24,10 +24,10 @@ export class SubscriptionsComponent {
   ngOnInit(): void {
     this.accountService.getAccounts().subscribe((response) => {
       this.accounts = response['accounts'];
+      this.accounts[0].active = true;
     });
     this.subscriptionService.getSubscriptions().subscribe((response) => {
       this.subscriptions = response['subscriptions'];
-      this.accounts[0].active = true;
     });
   }
   openAccountDialog(data: IAccount) {
