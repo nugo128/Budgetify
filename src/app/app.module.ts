@@ -61,7 +61,7 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
 import { ObligatoryComponentComponent } from './components/obligatory-component/obligatory-component.component';
 import { ObligatoryDialogComponent } from './components/obligatory-dialog/obligatory-dialog.component';
 import { EditObligatoryDialogComponent } from './components/edit-obligatory-dialog/edit-obligatory-dialog.component';
-
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -122,6 +122,7 @@ import { EditObligatoryDialogComponent } from './components/edit-obligatory-dial
     MatSelectModule,
     MatInputModule,
     MatDatepickerModule,
+    MatTableModule,
   ],
   providers: [
     AuthGuard,
