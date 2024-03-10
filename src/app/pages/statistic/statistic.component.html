@@ -20,7 +20,7 @@
           <p class="total">Total Expenses</p>
           <p class="exp_amount">{{amount|number:'2.2'}}$</p>
         </div>
-        <table mat-table [dataSource]="dataSoutce" class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 rounded-table">
 
           <ng-container matColumnDef="Category">
             <th mat-header-cell *matHeaderCellDef> Category </th>
@@ -40,7 +40,7 @@
         
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        
+        </table>        
 </div>
+<div id="chart" class="chart" style="width: 600px;height:400px;"></div>
 </div>
