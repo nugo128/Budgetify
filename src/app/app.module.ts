@@ -62,6 +62,8 @@ import { ObligatoryComponentComponent } from './components/obligatory-component/
 import { ObligatoryDialogComponent } from './components/obligatory-dialog/obligatory-dialog.component';
 import { EditObligatoryDialogComponent } from './components/edit-obligatory-dialog/edit-obligatory-dialog.component';
 import { MatTableModule } from '@angular/material/table';
+import { MonthlyStatisticsComponent } from './pages/monthly-statistics/monthly-statistics.component';
+import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,6 +100,8 @@ import { MatTableModule } from '@angular/material/table';
     ObligatoryComponentComponent,
     ObligatoryDialogComponent,
     EditObligatoryDialogComponent,
+    MonthlyStatisticsComponent,
+    StatisticsPageComponent,
   ],
   imports: [
     BrowserModule,

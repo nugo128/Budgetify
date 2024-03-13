@@ -31,6 +31,7 @@ mat-form-field {
   margin-top: 50px;
   width: 100%;
   border-radius: 10px;
+  background-color: white;
 }
 table {
   width: 100%;
@@ -67,7 +68,7 @@ tbody {
 }
 .chart {
   background-color: white;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .rounded-table {
   border-collapse: collapse;
@@ -81,4 +82,12 @@ tbody {
 }
 .rounded-table th {
   border: none;
+}
+.main {
+  display: flex;
+  gap: 100px;
+  justify-content: space-between;
+}
+.data {
+  width: 500px;
 }

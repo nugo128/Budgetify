@@ -1,0 +1,12 @@
+<div class="statistic-page">
+    <div class="cards">
+        <app-card *ngFor="let account of accounts" (click)="openAccountDialog(account)" [cardType]="account.title" [amount]="account.balance" [currency]="account.currency" [selected]="account.active"></app-card>
+    </div>
+<div class="main">
+    <div class="statistic-tab">
+        <a routerLink="category" class="categories" routerLinkActive="active"><h2>Categories Statistic</h2></a>
+        <a routerLink="monthly" class="monthly" routerLinkActive="active"><h2>Monthly Statistic</h2></a>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+</div>
