@@ -1,0 +1,38 @@
+::ng-deep .mdc-line-ripple {
+  display: none;
+}
+mat-form-field {
+  margin-top: 50px;
+  width: 450px;
+  border-radius: 10px;
+}
+.mat-mdc-header-row {
+  background-color: #d5f1ec;
+  height: 40px;
+}
+.mat-mdc-row {
+  height: 40px;
+}
+tbody {
+  padding: 0px 10px;
+}
+table {
+  width: 650px;
+}
+.rounded-table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  padding-left: 5px;
+  overflow: hidden;
+}
+.rounded-table td,
+.rounded-table th {
+  padding: 0 10px;
+}
+.rounded-table th {
+  border: none;
+}
+.chart {
+  margin-top: 30px;
+  background-color: white;
+}

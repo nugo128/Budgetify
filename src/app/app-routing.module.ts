@@ -12,6 +12,8 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { AuthGuard } from './auth-guard';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { EditTransactionDialogComponent } from './components/edit-transaction-dialog/edit-transaction-dialog.component';
+import { MonthlyStatisticsComponent } from './pages/monthly-statistics/monthly-statistics.component';
+import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -48,7 +50,11 @@ const routes: Routes = [
       },
       {
         path: 'statistic',
-        component: StatisticComponent,
+        component: StatisticsPageComponent,
+        children: [
+          { path: 'category', component: StatisticComponent },
+          { path: 'monthly', component: MonthlyStatisticsComponent },
+        ],
       },
     ],
   },

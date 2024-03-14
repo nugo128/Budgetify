@@ -24,7 +24,7 @@ export class StatisticComponent {
   option = {
     grid: {
       left: '0%',
-      right: '65%',
+      right: '10%',
       bottom: '3%',
       containLabel: true,
     },
@@ -38,7 +38,7 @@ export class StatisticComponent {
       axisLine: {
         symbol: ['none', 'arrow'],
         symbolSize: [8, 8],
-        symbolOffset: [5, 5],
+        symbolOffset: [45, 5],
         show: true,
         lineStyle: {
           color: 'black',
@@ -81,6 +81,9 @@ export class StatisticComponent {
       date_from: '1/3/2023',
       date_to: '3/3/2024',
     });
+  }
+  ngOnDestroy(): void {
+    this.myChart.dispose();
   }
   accounts: any;
   ngOnInit(): void {
@@ -128,7 +131,9 @@ export class StatisticComponent {
         this.option.series.push({
           data: [{ value: element.totalAmount, name: element.category }],
           type: 'bar',
-          barWidth: 20,
+          barWidth: 25,
+          barCategoryGap: '100%',
+          barGap: '50%',
           itemStyle: {
             color: this.getRandomColor(),
           },
@@ -142,34 +147,10 @@ export class StatisticComponent {
             distance: '20',
           },
         });
+        this.option.series.push({ data: [0, 0], type: 'bar' });
       });
       this.dataSource = this.groupedTransactions;
       this.myChart.setOption(this.option);
-    });
-  }
-  openAccountDialog(data: IAccount) {
-    const dialogRef = this.dialog.open(AccountDialogComponent, {
-      data: data,
-      panelClass: 'custom-dialog-container',
-      position: {
-        top: '0px',
-        right: '0px',
-      },
-      height: '100%',
-      width: '603px',
-    });
-    const index = this.accounts.findIndex(
-      (obj: IAccount) => obj.id === data.id
-    );
-    this.accounts.forEach((item) => {
-      item.active = false;
-    });
-    this.accounts[index].active = true;
-    dialogRef.afterClosed().subscribe((result) => {
-      const index = this.accounts.findIndex(
-        (obj: IAccount) => obj.id === result.id
-      );
-      this.accounts[index] = result;
     });
   }
   getRandomColor(): string {
