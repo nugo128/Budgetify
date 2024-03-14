@@ -1,0 +1,34 @@
+.categories_page {
+  background-color: #eceded;
+  min-height: 90vh;
+  padding: 0px 52px;
+  display: flex;
+  justify-content: space-between;
+}
+.side {
+  width: 405px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 20px;
+  height: 100vh;
+}
+.income-expenses {
+  display: flex;
+  width: 250px;
+  background-color: white;
+  padding: 6px 10px;
+  gap: 5px;
+  align-items: center;
+  border-radius: 10px;
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+}
+.categories {
+  margin-top: 30px;
+  max-width: 1500px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}

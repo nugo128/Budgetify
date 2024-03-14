@@ -1,0 +1,15 @@
+.category {
+  border: 2px solid;
+  width: fit-content;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  gap: 5px;
+}
+svg {
+  width: 20px;
+  height: 20px;
+}
+input {
+  border: none;
+}
