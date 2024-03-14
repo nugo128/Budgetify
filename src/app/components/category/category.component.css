@@ -13,3 +13,7 @@ svg {
 input {
   border: none;
 }
+.active {
+  background: transparent;
+  border-bottom: 1px solid #37373780;
+}
