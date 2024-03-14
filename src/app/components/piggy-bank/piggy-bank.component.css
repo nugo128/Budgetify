@@ -8,12 +8,6 @@
   gap: 6px;
   font-family: "Space Grotesk";
 }
-.pig {
-  background-color: white;
-  border-radius: 50%;
-  padding: 4px;
-  align-self: center;
-}
 .piggy_info {
   display: flex;
   flex-direction: column;
@@ -39,4 +33,8 @@
 }
 .amount {
   font-size: 13px;
+}
+.piggy_img {
+  width: 75px;
+  height: 55px;
 }

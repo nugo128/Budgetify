@@ -1,0 +1,78 @@
+.title {
+  display: flex;
+  font-size: 32px;
+  padding: 20px 0px 10px 0;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Space Grotesk";
+}
+.edit_form {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.content {
+  max-height: initial;
+}
+
+.add {
+  margin-top: 5px;
+  width: 80px;
+  height: 65px;
+  border: 1px dotted black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Space Grotesk;
+  font-size: 32px;
+  font-weight: 700;
+  color: black;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.save {
+  padding-left: 20px;
+}
+.chips {
+  border: 1px solid #37373780;
+  padding-bottom: -40px;
+  position: relative;
+  padding-top: 10px;
+  width: 575px;
+  border-radius: 3px;
+  height: fit-content;
+}
+.chips p {
+  position: absolute;
+  left: 20px;
+  top: -10px;
+  z-index: 99;
+  background-color: #fff;
+  color: #37373780;
+  padding: 0 5px;
+}
+.chips p span {
+  color: red;
+}
+.dates_cont {
+  position: relative;
+}
+.dates {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  z-index: 99;
+  background-color: white;
+  padding-top: 2px 5px;
+  font-family: "Space Grotesk";
+  font-size: 14px;
+  font-weight: 400;
+}
+.dates span {
+  color: red;
+}

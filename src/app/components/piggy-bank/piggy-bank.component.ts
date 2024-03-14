@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './piggy-bank.component.css',
 })
 export class PiggyBankComponent {
-  @Input() title = '';
-  @Input() fullAmount = 0;
-  @Input() currentAmount = 0;
+  @Input() goal = '';
+  @Input() goalAmount = 0;
+  @Input() savedAmount = 0;
 }

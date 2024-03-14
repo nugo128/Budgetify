@@ -44,7 +44,26 @@ import { AsyncPipe } from '@angular/common';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { TokenInterceptor } from './token.interceptor';
 import { DeleteTransactionDialogComponent } from './components/delete-transaction-dialog/delete-transaction-dialog.component';
-
+import { PiggyDialogComponent } from './components/piggy-dialog/piggy-dialog.component';
+import { EditPiggyDialogComponent } from './components/edit-piggy-dialog/edit-piggy-dialog.component';
+import { AddMoneyToPiggyDialogComponent } from './components/add-money-to-piggy-dialog/add-money-to-piggy-dialog.component';
+import { DeletePiggyDialogComponent } from './components/delete-piggy-dialog/delete-piggy-dialog.component';
+import { AccountDialogComponent } from './components/account-dialog/account-dialog.component';
+import { EditAccountDialogComponent } from './components/edit-account-dialog/edit-account-dialog.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { SubscriptionDialogComponent } from './components/subscription-dialog/subscription-dialog.component';
+import { EditSubscriptionComponent } from './components/edit-subscription/edit-subscription.component';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { ObligatoryComponentComponent } from './components/obligatory-component/obligatory-component.component';
+import { ObligatoryDialogComponent } from './components/obligatory-dialog/obligatory-dialog.component';
+import { EditObligatoryDialogComponent } from './components/edit-obligatory-dialog/edit-obligatory-dialog.component';
+import { MatTableModule } from '@angular/material/table';
+import { MonthlyStatisticsComponent } from './pages/monthly-statistics/monthly-statistics.component';
+import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +87,21 @@ import { DeleteTransactionDialogComponent } from './components/delete-transactio
     FormInputComponent,
     ChipsComponent,
     DeleteTransactionDialogComponent,
+    PiggyDialogComponent,
+    EditPiggyDialogComponent,
+    AddMoneyToPiggyDialogComponent,
+    DeletePiggyDialogComponent,
+    AccountDialogComponent,
+    EditAccountDialogComponent,
+    SubscriptionComponent,
+    SubscriptionDialogComponent,
+    EditSubscriptionComponent,
+    DatePickerComponent,
+    ObligatoryComponentComponent,
+    ObligatoryDialogComponent,
+    EditObligatoryDialogComponent,
+    MonthlyStatisticsComponent,
+    StatisticsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,10 +123,15 @@ import { DeleteTransactionDialogComponent } from './components/delete-transactio
     ReactiveFormsModule,
     AsyncPipe,
     NgxDropzoneModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatTableModule,
   ],
   providers: [
     AuthGuard,
     provideAnimationsAsync(),
+    provideNativeDateAdapter(),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

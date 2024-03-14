@@ -1,0 +1,26 @@
+.statistic-page {
+  background-color: #eceded;
+  min-height: 90vh;
+  padding: 0px 52px;
+  display: flex;
+  gap: 125px;
+}
+.statistic-tab {
+  display: flex;
+}
+.statistic-tab a {
+  text-decoration: none;
+  color: #37373780;
+  padding: 8px 16px;
+  background-color: white;
+  border: 2px solid #37373780;
+  border-radius: 10px;
+}
+.monthly {
+  margin-left: -16px;
+}
+.statistic-tab a.active {
+  z-index: 10;
+  color: #373737;
+  border-color: #373737;
+}

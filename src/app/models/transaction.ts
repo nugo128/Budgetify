@@ -4,6 +4,7 @@ export interface ITransaction {
   author: string;
   date: string;
   description: string;
+  category: {};
   title: string;
   transaction_type: string;
 }
