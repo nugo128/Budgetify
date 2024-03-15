@@ -14,4 +14,7 @@ export class CategoryService {
   edit(formData: any) {
     return this.http.post(`${BASE_API_URL}/editCategory`, formData);
   }
+  add(formData: any) {
+    return this.http.post(`${BASE_API_URL}/addCategory`, formData);
+  }
 }

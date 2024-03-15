@@ -19,7 +19,6 @@ export class CategoryComponent implements OnInit {
   }
   ngOnInit(): void {
     this.width = this.category.length * 10 + 'px';
-    console.log(this.width);
   }
   onSubmit() {
     this.categoryService
