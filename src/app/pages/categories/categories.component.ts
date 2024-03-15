@@ -9,6 +9,8 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './categories.component.css',
 })
 export class CategoriesComponent implements OnInit {
+  searchText = '';
+  allCategories = [];
   categories: any = [];
   constructor(
     public categoryService: CategoryService,
@@ -17,8 +19,20 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryService.get().subscribe((response) => {
+      this.allCategories = response['category'];
       this.categories = response['category'];
     });
+  }
+  onSearch() {
+    if (this.searchText.length > 0) {
+      this.categoryService
+        .search({ search: this.searchText })
+        .subscribe((resp) => {
+          this.categories = resp['category'];
+        });
+    } else {
+      this.categories = this.allCategories;
+    }
   }
   openCategoryDialog(data) {
     const dialogRef = this.dialog.open(AddCategoryDialogComponent, {

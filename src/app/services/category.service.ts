@@ -17,4 +17,7 @@ export class CategoryService {
   add(formData: any) {
     return this.http.post(`${BASE_API_URL}/addCategory`, formData);
   }
+  search(formData: any) {
+    return this.http.post(`${BASE_API_URL}/search`, formData);
+  }
 }
