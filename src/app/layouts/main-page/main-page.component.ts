@@ -23,6 +23,8 @@ import { IAccount } from '../../models/account';
 })
 export class MainPageComponent implements OnInit {
   public transactions: ITransaction[];
+  searchText = '';
+  allTransactions: any = [];
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   public piggyBanks: IPiggy[];
@@ -39,6 +41,7 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
     this.transactionService.getTransactions().subscribe((responseData) => {
       this.transactions = responseData['transactions'];
+      this.allTransactions = responseData['transactions'];
     });
     this.piggyService.getPiggy().subscribe((response) => {
       this.piggyBanks = response['piggy'];
@@ -47,6 +50,17 @@ export class MainPageComponent implements OnInit {
       this.accounts = response['accounts'];
       this.accounts[0].active = true;
     });
+  }
+  onSearch() {
+    if (this.searchText.length > 0) {
+      this.transactionService
+        .search({ search: this.searchText })
+        .subscribe((resp) => {
+          this.transactions = resp['transaction'];
+        });
+    } else {
+      this.transactions = this.allTransactions;
+    }
   }
   openDialog(data: ITransaction) {
     const dialogRef = this.dialog.open(DialogComponent, {

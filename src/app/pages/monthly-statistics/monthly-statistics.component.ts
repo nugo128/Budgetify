@@ -169,7 +169,6 @@ export class MonthlyStatisticsComponent implements OnInit, OnDestroy {
       return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
     this.dataSource = this.monthlyDataArray;
-    console.log(this.dataSource);
     this.monthlyDataArray.map((data) => {
       if (data.date !== 'Total' && data.date !== 'Average') {
         const [year, month] = data.date.split('-');
@@ -211,7 +210,7 @@ export class MonthlyStatisticsComponent implements OnInit, OnDestroy {
     return averageValues;
   }
   ngOnInit(): void {
-    this.chartDom = document.getElementById('chart');
+    this.chartDom = document.getElementById('chart-monthly');
     this.myChart = echarts.init(this.chartDom);
     this.statisticService.get(this.statistic.value).subscribe((response) => {
       this.entries = response;
