@@ -1,4 +1,4 @@
-<div class="title"><h2 mat-dialog-title>Edit Piggy Bank</h2> <div class="svgs">
+<div class="title"><h2 mat-dialog-title>{{'edit_piggy'|translate}}</h2> <div class="svgs">
         <svg xmlns="http://www.w3.org/2000/svg" mat-dialog-close class="cross" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
@@ -7,14 +7,14 @@
   </div>
 <mat-dialog-content class="">
   <form class="edit_form" [formGroup]="editPiggyForm">
-    <app-form-input [inputData]="data.goal" formControlName="goal" [placeholderText]="'Goal'" [required]="true"></app-form-input>
-    <app-form-input [inputData]="data.goal_amount" formControlName="goal_amount" [placeholderText]="'Goal Amount'" [required]="true" inputType="number"></app-form-input>
+    <app-form-input [inputData]="data.goal" formControlName="goal" [placeholderText]="'goal'|translate" [required]="true"></app-form-input>
+    <app-form-input [inputData]="data.goal_amount" formControlName="goal_amount" [placeholderText]="'goal_amount'|translate" [required]="true" inputType="number"></app-form-input>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
     <div class="buttons">
 
-        <button mat-button mat-dialog-close>Close</button>
-        <app-add-button width="100"><p class="save" (click)="onSubmit()">Save</p></app-add-button>
+        <button mat-button mat-dialog-close>{{'close'|translate}}</button>
+        <app-add-button><p class="save" (click)="onSubmit()">{{'save'|translate}}</p></app-add-button>
     </div>
 </mat-dialog-actions>

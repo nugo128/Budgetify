@@ -86,10 +86,16 @@ export class MainPageComponent implements OnInit {
       });
       this.router.navigate(['/']);
       if (result === 'delete') {
-        this._snackBar.open('Transaction was successfully removed', 'Close', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
+        this._snackBar.open(
+          localStorage.getItem('lang') === 'ru'
+            ? 'Транзакция успешно удалена'
+            : 'Transaction was successfully removed',
+          localStorage.getItem('lang') === 'ru' ? 'Закрыть' : 'Close',
+          {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          }
+        );
       }
     });
   }

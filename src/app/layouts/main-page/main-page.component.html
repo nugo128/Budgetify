@@ -41,17 +41,17 @@
                 
             <h2>{{'expenses' | translate}}</h2>
         </div>
-        <app-add-button [buttonText]="'add_transaction' | translate"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <app-add-button [buttonText]="'add_transaction' | translate" [width]="'270'"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="18" cy="17.5533" r="17.5" fill="white"/>
             <path d="M16.38 26.4533V19.4933H9.5V16.6133H16.38V9.65334H19.42V16.6133H26.3V19.4933H19.42V26.4533H16.38Z" fill="#86C9CF"/>
             </svg>
             </app-add-button>
-        <app-add-button [buttonText]="'add_account' | translate"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <app-add-button [width]="'270'" [buttonText]="'add_account' | translate" ><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="18" cy="17.5533" r="17.5" fill="white"/>
             <path d="M16.38 26.4533V19.4933H9.5V16.6133H16.38V9.65334H19.42V16.6133H26.3V19.4933H19.42V26.4533H16.38Z" fill="#86C9CF"/>
             </svg>
             </app-add-button>
-            <app-add-button class="add-piggy" [buttonText]="'add_piggy_bank' | translate"><img class="piggy_img" src="../../../assets/images/piggy_bank.png" alt=""></app-add-button>
+            <app-add-button [width]="'270'" class="add-piggy" [buttonText]="'add_piggy_bank' | translate"><img class="piggy_img" src="../../../assets/images/piggy_bank.png" alt=""></app-add-button>
             <div class="piggy_banks">
                 <app-piggy-bank class="piggy_bank" *ngFor="let piggy of piggyBanks" [goal]="piggy.goal" [goalAmount]="piggy.goal_amount" [savedAmount]="piggy.saved_amount" (click)="openPiggyDialog(piggy)"></app-piggy-bank>
             </div>

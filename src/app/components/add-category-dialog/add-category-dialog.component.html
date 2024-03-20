@@ -1,5 +1,5 @@
 <div class="title">
-    <h2 mat-dialog-title>Add Category</h2>
+    <h2 mat-dialog-title>{{'add_category'|translate}}</h2>
     <svg mat-dialog-close xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>
 </div>
 <mat-dialog-content class="content">
@@ -10,24 +10,24 @@
             <path d="M19.4688 8.81041C19.0783 8.41989 18.4451 8.41989 18.0546 8.81041L11.6907 15.1744C11.3001 15.5649 11.3001 16.1981 11.6907 16.5886C12.0812 16.9791 12.7143 16.9791 13.1049 16.5886L18.7617 10.9317L24.4186 16.5886C24.8091 16.9791 25.4423 16.9791 25.8328 16.5886C26.2233 16.1981 26.2233 15.5649 25.8328 15.1744L19.4688 8.81041ZM19.7617 26.5175L19.7617 9.51752H17.7617L17.7617 26.5175H19.7617Z" fill="white"/>
             </svg>
             
-        <h2>Expenses</h2>
+        <h2>{{'Expenses'|translate}}</h2>
     </div>
     <div class="income" (click)="changeType('Income')" [ngStyle]="{'opacity': transactionType === 'Income' ? '100%' : '40%', 'z-index': transactionType === 'Income' ? '99' : ''}"><svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="17.5" cy="17.7854" r="17.5" fill="#21C206"/>
         <path d="M17.2929 25.9925C17.6834 26.383 18.3166 26.383 18.7071 25.9925L25.0711 19.6285C25.4616 19.238 25.4616 18.6049 25.0711 18.2143C24.6805 17.8238 24.0474 17.8238 23.6569 18.2143L18 23.8712L12.3431 18.2143C11.9526 17.8238 11.3195 17.8238 10.9289 18.2143C10.5384 18.6049 10.5384 19.238 10.9289 19.6285L17.2929 25.9925ZM17 8.2854V25.2854H19V8.2854H17Z" fill="white"/>
         </svg>
         
-        <h2>Income</h2></div>
+        <h2>{{'Income'|translate}}</h2></div>
    </div>
    <form class="add_form" action="" [formGroup]="addCategory">
-    <app-form-input class="title" [placeholderText]="'Title'" formControlName="title" [required]="true"></app-form-input>
+    <app-form-input class="title" [placeholderText]="'title'|translate" formControlName="title" [required]="true"></app-form-input>
     </form>
 
 </mat-dialog-content>
 <mat-dialog-actions>
     <div class="buttons">
     
-        <button mat-button mat-dialog-close>Close</button>
-        <app-add-button width="100" (click)="onSubmit()"><p class="save">Save</p></app-add-button>
+        <button mat-button mat-dialog-close>{{'close'|translate}}</button>
+        <app-add-button (click)="onSubmit()"><p class="save">{{'save'|translate}}</p></app-add-button>
     </div>
     </mat-dialog-actions>

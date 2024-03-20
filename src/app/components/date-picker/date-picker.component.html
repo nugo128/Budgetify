@@ -1,5 +1,5 @@
 <mat-form-field appearance="outline">
-  <mat-label>Payment Dates<span>*</span></mat-label>
+  <mat-label>{{'payment_dates'|translate}}<span>*</span></mat-label>
     <mat-date-range-input [rangePicker]="picker">
         <input matStartDate #startInput (dateChange)="dateChanged(startInput.value, endInput.value)" placeholder="Start date" [value]="start">
         <input matEndDate #endInput [value]="end" (dateChange)="dateChanged(startInput.value, endInput.value)" placeholder="End date">

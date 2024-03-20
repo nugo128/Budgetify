@@ -1,4 +1,4 @@
-<div class="title"><h2 mat-dialog-title>Edit Account</h2> <div class="svgs">
+<div class="title"><h2 mat-dialog-title>{{'edit_account'|translate}}</h2> <div class="svgs">
     <svg xmlns="http://www.w3.org/2000/svg" mat-dialog-close class="cross" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
       </svg>
@@ -7,22 +7,22 @@
 </div>
 <mat-dialog-content class="">
 <form class="edit_form" [formGroup]="editAccountForm">
-<app-form-input [inputData]="data.title" formControlName="title" [placeholderText]="'Title'" [required]="true"></app-form-input>
+<app-form-input [inputData]="data.title" formControlName="title" [placeholderText]="'title'|translate" [required]="true"></app-form-input>
 <mat-form-field appearance="outline">
-  <mat-label>Currency <span class="required">*</span></mat-label>
+  <mat-label>{{'currency'|translate}} <span class="required">*</span></mat-label>
     <mat-select name="currency" formControlName="currency">
       @for (currency of currencies; track currency) {
         <mat-option [value]="currency.value">{{currency.viewValue}}</mat-option>
       }
     </mat-select>
   </mat-form-field>
-<app-form-input [inputData]="data.description" formControlName="description" [placeholderText]="'Description'" [required]="true"></app-form-input>
+<app-form-input [inputData]="data.description" formControlName="description" [placeholderText]="'description'|translate" [required]="true"></app-form-input>
 </form>
 </mat-dialog-content>
 <mat-dialog-actions>
 <div class="buttons">
 
-    <button mat-button mat-dialog-close>Close</button>
-    <app-add-button width="100"><p class="save" (click)="onSubmit()">Save</p></app-add-button>
+    <button mat-button mat-dialog-close>{{'close'|translate}}</button>
+    <app-add-button><p class="save" (click)="onSubmit()">{{'save'|translate}}</p></app-add-button>
 </div>
 </mat-dialog-actions>
