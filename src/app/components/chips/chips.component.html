@@ -1,5 +1,5 @@
 <mat-form-field class="example-chip-list" (click)="emitEvent()" appearance="outline">
-  <mat-label>Category<span>*</span></mat-label>
+  <mat-label>{{'category'|translate}}<span>*</span></mat-label>
     <mat-chip-grid #chipGrid aria-label="category selection" class="categories">
       @for (category of categories; track category) {
         <mat-chip-row (removed)="remove(category)">

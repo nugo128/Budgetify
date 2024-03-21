@@ -46,7 +46,9 @@ export class CategoriesComponent implements OnInit {
       width: '603px',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      this.categories.push(result);
+      if (result) {
+        this.categories.push(result);
+      }
     });
   }
 }

@@ -66,6 +66,13 @@ import { MonthlyStatisticsComponent } from './pages/monthly-statistics/monthly-s
 import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
 import { CategoryComponent } from './components/category/category.component';
 import { AddCategoryDialogComponent } from './components/add-category-dialog/add-category-dialog.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { AdminComponent } from './pages/admin/admin.component';
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,6 +113,7 @@ import { AddCategoryDialogComponent } from './components/add-category-dialog/add
     StatisticsPageComponent,
     CategoryComponent,
     AddCategoryDialogComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -131,6 +139,13 @@ import { AddCategoryDialogComponent } from './components/add-category-dialog/add
     MatInputModule,
     MatDatepickerModule,
     MatTableModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     AuthGuard,
