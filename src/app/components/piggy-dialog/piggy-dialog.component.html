@@ -1,4 +1,4 @@
-<div class="title"><h2 mat-dialog-title>Piggy Bank Information</h2> <div class="svgs">
+<div class="title"><h2 mat-dialog-title>{{'piggy_info'|translate}}</h2> <div class="svgs">
     <svg xmlns="http://www.w3.org/2000/svg" (click)="openEditPiggyDialog(data)" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="edit">
         <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
       </svg>
@@ -20,18 +20,18 @@
 
     <div class="data">
         <div class="goal">
-            <h2>Goal:</h2> <span>{{data.goal}}</span>
+            <h2>{{'goal'|translate}}:</h2> <span>{{data.goal}}</span>
         </div>
         <div class="goal_amount">
-            <h2>Goal Amount:</h2> <span>{{data.goal_amount| number: '.2-2'}}$</span>
+            <h2>{{'goal_amount'|translate}}:</h2> <span>{{data.goal_amount| number: '.2-2'}}$</span>
         </div>
         <div class="saved_amount">
-            <h2>Saved Amount:</h2><span>{{data.saved_amount| number: '.2-2'}}$</span>
+            <h2>{{'saved_amount'|translate}}:</h2><span>{{data.saved_amount| number: '.2-2'}}$</span>
         </div>
     </div>
     <button class="crash" (click)="openDeleteDialog(data)">
-        <img class="piggy_img" src="../../../assets/images/piggy_bank.png" alt=""> <h2>Crash</h2></button>
+        <img class="piggy_img" src="../../../assets/images/piggy_bank.png" alt=""> <h2>{{'crash'|translate}}</h2></button>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close class="close">Close</button>
+  <button mat-button mat-dialog-close class="close">{{'close'|translate}}</button>
 </mat-dialog-actions>

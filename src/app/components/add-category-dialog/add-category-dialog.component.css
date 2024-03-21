@@ -1,0 +1,46 @@
+.title {
+  display: flex;
+  font-size: 32px;
+  padding: 20px 20px 10px 0;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Space Grotesk";
+}
+.title h2 {
+  font-size: 32px;
+}
+.trans_type {
+  display: flex;
+}
+.income,
+.expenses {
+  border: 2px solid #373737;
+  width: 160.79px;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  height: 50px;
+  padding: 0 5px;
+  position: absolute;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+.income {
+  left: 180px;
+  justify-content: end;
+  padding-right: 10px;
+  opacity: 50%;
+}
+.add_form {
+  margin-top: 80px;
+}
+.buttons {
+  display: flex;
+  margin-left: 70%;
+  margin-top: 20%;
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  color: #373737;
+}

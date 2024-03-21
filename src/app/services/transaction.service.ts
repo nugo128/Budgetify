@@ -17,4 +17,7 @@ export class TransactionService {
   deleteTransaction(id: number) {
     return this.http.delete(`${BASE_API_URL}/deleteTransaction/${id}`);
   }
+  search(formData: any) {
+    return this.http.post(`${BASE_API_URL}/searchTransaction`, formData);
+  }
 }

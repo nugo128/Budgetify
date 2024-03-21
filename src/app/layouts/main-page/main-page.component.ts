@@ -15,6 +15,7 @@ import { PiggyDialogComponent } from '../../components/piggy-dialog/piggy-dialog
 import { AccountService } from '../../services/account.service';
 import { AccountDialogComponent } from '../../components/account-dialog/account-dialog.component';
 import { IAccount } from '../../models/account';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-main-page',
@@ -23,6 +24,8 @@ import { IAccount } from '../../models/account';
 })
 export class MainPageComponent implements OnInit {
   public transactions: ITransaction[];
+  searchText = '';
+  allTransactions: any = [];
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   public piggyBanks: IPiggy[];
@@ -33,12 +36,14 @@ export class MainPageComponent implements OnInit {
     public router: Router,
     private _snackBar: MatSnackBar,
     public piggyService: PiggyService,
-    public accountService: AccountService
+    public accountService: AccountService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
     this.transactionService.getTransactions().subscribe((responseData) => {
       this.transactions = responseData['transactions'];
+      this.allTransactions = responseData['transactions'];
     });
     this.piggyService.getPiggy().subscribe((response) => {
       this.piggyBanks = response['piggy'];
@@ -47,6 +52,22 @@ export class MainPageComponent implements OnInit {
       this.accounts = response['accounts'];
       this.accounts[0].active = true;
     });
+    if (localStorage.getItem('lang')) {
+      this.translate.use(localStorage.getItem('lang'));
+    } else {
+      this.translate.use('en');
+    }
+  }
+  onSearch() {
+    if (this.searchText.length > 0) {
+      this.transactionService
+        .search({ search: this.searchText })
+        .subscribe((resp) => {
+          this.transactions = resp['transaction'];
+        });
+    } else {
+      this.transactions = this.allTransactions;
+    }
   }
   openDialog(data: ITransaction) {
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -65,10 +86,16 @@ export class MainPageComponent implements OnInit {
       });
       this.router.navigate(['/']);
       if (result === 'delete') {
-        this._snackBar.open('Transaction was successfully removed', 'Close', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
+        this._snackBar.open(
+          localStorage.getItem('lang') === 'ru'
+            ? 'Транзакция успешно удалена'
+            : 'Transaction was successfully removed',
+          localStorage.getItem('lang') === 'ru' ? 'Закрыть' : 'Close',
+          {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          }
+        );
       }
     });
   }

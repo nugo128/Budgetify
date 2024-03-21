@@ -14,6 +14,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { EditTransactionDialogComponent } from './components/edit-transaction-dialog/edit-transaction-dialog.component';
 import { MonthlyStatisticsComponent } from './pages/monthly-statistics/monthly-statistics.component';
 import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path: 'obligatory',
         component: ObligatoryComponent,
+      },
+      {
+        path: 'admin',
+        component: AdminComponent,
       },
       {
         path: 'statistic',

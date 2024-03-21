@@ -1,1 +1,35 @@
-<p>categories works!</p>
+<div class="categories_page">
+    <div>
+        <div class="search_container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg>
+            <input type="text" class="search" [placeholder]="'search' | translate" [(ngModel)]="searchText"(keyup)="onSearch()" >
+        </div>
+    <div class="categories">
+        <app-category *ngFor="let category of categories" [category]="category.title" [type]="category.type" [id]="category.id"></app-category>
+    </div>
+    </div>
+    <div class="side">
+        <div class="income-expenses">
+            <svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="17.5" cy="17.7854" r="17.5" fill="#21C206"/>
+                <path d="M17.2929 25.9925C17.6834 26.383 18.3166 26.383 18.7071 25.9925L25.0711 19.6285C25.4616 19.238 25.4616 18.6049 25.0711 18.2143C24.6805 17.8238 24.0474 17.8238 23.6569 18.2143L18 23.8712L12.3431 18.2143C11.9526 17.8238 11.3195 17.8238 10.9289 18.2143C10.5384 18.6049 10.5384 19.238 10.9289 19.6285L17.2929 25.9925ZM17 8.2854V25.2854H19V8.2854H17Z" fill="white"/>
+                </svg>
+                
+            <h2>{{'income' | translate}}</h2>
+        </div>
+        <div class="income-expenses">
+            <svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="17.5" cy="18.2854" r="17.5" fill="#EE3F19"/>
+                <path d="M18.7071 10.0783C18.3166 9.68777 17.6834 9.68777 17.2929 10.0783L10.9289 16.4423C10.5384 16.8328 10.5384 17.4659 10.9289 17.8565C11.3195 18.247 11.9526 18.247 12.3431 17.8565L18 12.1996L23.6569 17.8565C24.0474 18.247 24.6805 18.247 25.0711 17.8565C25.4616 17.4659 25.4616 16.8328 25.0711 16.4423L18.7071 10.0783ZM19 27.7854L19 10.7854H17L17 27.7854H19Z" fill="white"/>
+                </svg>
+                
+                
+                <h2>{{'expenses' | translate}}</h2>
+        </div>
+        <app-add-button width="270" [buttonText]="'add_category' | translate" (click)="openCategoryDialog(categories)"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="17.5533" r="17.5" fill="white"/>
+            <path d="M16.38 26.4533V19.4933H9.5V16.6133H16.38V9.65334H19.42V16.6133H26.3V19.4933H19.42V26.4533H16.38Z" fill="#86C9CF"/>
+            </svg>
+            </app-add-button>
+    </div>
+</div>

@@ -64,6 +64,15 @@ import { EditObligatoryDialogComponent } from './components/edit-obligatory-dial
 import { MatTableModule } from '@angular/material/table';
 import { MonthlyStatisticsComponent } from './pages/monthly-statistics/monthly-statistics.component';
 import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
+import { CategoryComponent } from './components/category/category.component';
+import { AddCategoryDialogComponent } from './components/add-category-dialog/add-category-dialog.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { AdminComponent } from './pages/admin/admin.component';
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,6 +111,9 @@ import { StatisticsPageComponent } from './pages/statistics-page/statistics-page
     EditObligatoryDialogComponent,
     MonthlyStatisticsComponent,
     StatisticsPageComponent,
+    CategoryComponent,
+    AddCategoryDialogComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -127,6 +139,13 @@ import { StatisticsPageComponent } from './pages/statistics-page/statistics-page
     MatInputModule,
     MatDatepickerModule,
     MatTableModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     AuthGuard,

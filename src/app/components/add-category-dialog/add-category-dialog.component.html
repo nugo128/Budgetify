@@ -1,5 +1,5 @@
 <div class="title">
-    <h2 mat-dialog-title>{{'edit_transaction'|translate}}</h2>
+    <h2 mat-dialog-title>{{'add_category'|translate}}</h2>
     <svg mat-dialog-close xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>
 </div>
 <mat-dialog-content class="content">
@@ -19,31 +19,15 @@
         
         <h2>{{'Income'|translate}}</h2></div>
    </div>
-   <form [formGroup]="editTransactionForm" (ngSubmit)="onSubmit()" class="edit_form">
-    <app-form-input formControlName="title" [placeholderText]="'title'|translate" [inputData]="data.title" [required]="true"></app-form-input>
-
-        <app-chips [existingCategory]="data.category" (categoryChange)="onCategoryChange($event)" (arrayEmitter)="handleArray($event)"></app-chips>
-
-    <app-form-input formControlName="amount" [placeholderText]="'amount'|translate" [inputData]="data.amount" [required]="true" inputType="number"></app-form-input>
-    <app-form-input formControlName="date" [placeholderText]="'payment_date'|translate" [inputData]="data.date" [required]="true" [inputType]="'date'"></app-form-input>
-    <app-form-input formControlName="author" [placeholderText]="'payee'|translate" [inputData]="data.author" [required]="false"></app-form-input>
-    <app-form-input formControlName="description" [placeholderText]="'description'|translate" [inputData]="data.description" [required]="false"></app-form-input>
-    <div class="images">
-        <img *ngFor="let image of images" [src]="image" alt="" class="uploadedImage">
-        <div class="add" ngx-dropzone [multiple] (change)="onUploadSuccess($event)" (removed)="onFileRemoved($event)">
-            <div class="dropzone-label">+</div>
-          </div>
-          
-          
-          
-        
-    </div>
-<div class="buttons">
-    <mat-dialog-actions>
-        <button mat-button mat-dialog-close class="close" type="reset">{{'cancel'|translate}}</button>
-    </mat-dialog-actions>
-    <app-add-button><p class="save">{{'save' | translate}}</p></app-add-button>
-</div>
-</form>
+   <form class="add_form" action="" [formGroup]="addCategory">
+    <app-form-input class="title" [placeholderText]="'title'|translate" formControlName="title" [required]="true"></app-form-input>
+    </form>
 
 </mat-dialog-content>
+<mat-dialog-actions>
+    <div class="buttons">
+    
+        <button mat-button mat-dialog-close>{{'close'|translate}}</button>
+        <app-add-button (click)="onSubmit()"><p class="save">{{'save'|translate}}</p></app-add-button>
+    </div>
+    </mat-dialog-actions>
