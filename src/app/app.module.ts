@@ -70,6 +70,10 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { AdminComponent } from './pages/admin/admin.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SpinnerInterceptor } from './services/spinner-interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -114,8 +118,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     CategoryComponent,
     AddCategoryDialogComponent,
     AdminComponent,
+    SpinnerComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -156,6 +163,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       useClass: TokenInterceptor,
       multi: true,
     },
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
