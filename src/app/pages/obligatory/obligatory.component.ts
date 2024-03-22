@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ObligatoryService } from '../../services/obligatory.service';
 import { ObligatoryDialogComponent } from '../../components/obligatory-dialog/obligatory-dialog.component';
 import { IObligatory } from '../../models/obligatory';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-obligatory',
@@ -18,16 +19,13 @@ export class ObligatoryComponent implements OnInit {
   constructor(
     public accountService: AccountService,
     public obligatoryService: ObligatoryService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    this.accountService.getAccounts().subscribe((response) => {
-      this.accounts = response['accounts'];
-      this.accounts[0].active = true;
-    });
-    this.obligatoryService.get().subscribe((response) => {
-      this.obligatories = response['obligatory'];
-    });
+    this.accounts = this.route.snapshot.data['account'].accounts;
+    this.accounts[0].active = true;
+    this.obligatories = this.route.snapshot.data['obligatory'].obligatory;
   }
 
   openAccountDialog(data: IAccount) {

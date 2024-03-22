@@ -8,6 +8,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { AuthGuard } from './auth-guard';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { EditTransactionDialogComponent } from './components/edit-transaction-dialog/edit-transaction-dialog.component';
+import { TransactionResolver } from './services/transaction-resolver.service';
+import { PiggyResolver } from './services/piggy-resolver.service';
+import { AccountResolver } from './services/account-resolver.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,6 +23,11 @@ const routes: Routes = [
       {
         path: '',
         component: MainPageComponent,
+        resolve: {
+          transaction: TransactionResolver,
+          piggy: PiggyResolver,
+          account: AccountResolver,
+        },
         children: [
           {
             path: 'transaction/:id',
