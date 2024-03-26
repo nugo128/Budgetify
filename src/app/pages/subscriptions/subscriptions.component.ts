@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SubscriptionService } from '../../services/subscription.service';
 import { SubscriptionDialogComponent } from '../../components/subscription-dialog/subscription-dialog.component';
 import { ISubscription } from '../../models/subscription';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-subscriptions',
@@ -18,17 +19,14 @@ export class SubscriptionsComponent {
   constructor(
     public accountService: AccountService,
     public dialog: MatDialog,
-    public subscriptionService: SubscriptionService
+    public subscriptionService: SubscriptionService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.accountService.getAccounts().subscribe((response) => {
-      this.accounts = response['accounts'];
-      this.accounts[0].active = true;
-    });
-    this.subscriptionService.getSubscriptions().subscribe((response) => {
-      this.subscriptions = response['subscriptions'];
-    });
+    this.accounts = this.route.snapshot.data['account'].accounts;
+    this.accounts[0].active = true;
+    this.subscriptions = this.route.snapshot.data['subscription'].subscriptions;
   }
   openAccountDialog(data: IAccount) {
     const dialogRef = this.dialog.open(AccountDialogComponent, {

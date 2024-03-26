@@ -3,7 +3,7 @@ import { TransactionService } from '../../services/transaction.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../components/dialog/dialog.component';
 import { ITransaction } from '../../models/transaction';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
@@ -16,6 +16,7 @@ import { AccountService } from '../../services/account.service';
 import { AccountDialogComponent } from '../../components/account-dialog/account-dialog.component';
 import { IAccount } from '../../models/account';
 import { TranslateService } from '@ngx-translate/core';
+import { SpinnerService } from '../../services/spinner.service';
 
 @Component({
   selector: 'app-main-page',
@@ -37,21 +38,16 @@ export class MainPageComponent implements OnInit {
     private _snackBar: MatSnackBar,
     public piggyService: PiggyService,
     public accountService: AccountService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.transactionService.getTransactions().subscribe((responseData) => {
-      this.transactions = responseData['transactions'];
-      this.allTransactions = responseData['transactions'];
-    });
-    this.piggyService.getPiggy().subscribe((response) => {
-      this.piggyBanks = response['piggy'];
-    });
-    this.accountService.getAccounts().subscribe((response) => {
-      this.accounts = response['accounts'];
-      this.accounts[0].active = true;
-    });
+    this.transactions = this.route.snapshot.data['transaction'].transactions;
+    this.allTransactions = this.route.snapshot.data['transaction'].transactions;
+    this.piggyBanks = this.route.snapshot.data['piggy'].piggy;
+    this.accounts = this.route.snapshot.data['account'].accounts;
+    this.accounts[0].active = true;
     if (localStorage.getItem('lang')) {
       this.translate.use(localStorage.getItem('lang'));
     } else {

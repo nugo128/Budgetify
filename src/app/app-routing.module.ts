@@ -5,16 +5,12 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { MainPageComponent } from './layouts/main-page/main-page.component';
 import { HeaderComponent } from './components/header/header.component';
-import { SubscriptionsComponent } from './pages/subscriptions/subscriptions.component';
-import { ObligatoryComponent } from './pages/obligatory/obligatory.component';
-import { StatisticComponent } from './pages/statistic/statistic.component';
-import { CategoriesComponent } from './pages/categories/categories.component';
 import { AuthGuard } from './auth-guard';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { EditTransactionDialogComponent } from './components/edit-transaction-dialog/edit-transaction-dialog.component';
-import { MonthlyStatisticsComponent } from './pages/monthly-statistics/monthly-statistics.component';
-import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
-import { AdminComponent } from './pages/admin/admin.component';
+import { TransactionResolver } from './services/transaction-resolver.service';
+import { PiggyResolver } from './services/piggy-resolver.service';
+import { AccountResolver } from './services/account-resolver.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,6 +23,11 @@ const routes: Routes = [
       {
         path: '',
         component: MainPageComponent,
+        resolve: {
+          transaction: TransactionResolver,
+          piggy: PiggyResolver,
+          account: AccountResolver,
+        },
         children: [
           {
             path: 'transaction/:id',
@@ -39,27 +40,34 @@ const routes: Routes = [
       },
       {
         path: 'categories',
-        component: CategoriesComponent,
+        loadChildren: () =>
+          import('./categories/categories.module').then(
+            (m) => m.CategoriesModule
+          ),
       },
       {
         path: 'subscriptions',
-        component: SubscriptionsComponent,
+        loadChildren: () =>
+          import('./subscriptions/subscriptions.module').then(
+            (m) => m.SubscriptionsModule
+          ),
       },
       {
         path: 'obligatory',
-        component: ObligatoryComponent,
+        loadChildren: () =>
+          import('./obligatory/obligatory.module').then(
+            (m) => m.ObligatoryModule
+          ),
       },
       {
         path: 'admin',
-        component: AdminComponent,
+        loadChildren: () =>
+          import('./admin/admin.module').then((m) => m.AdminModule),
       },
       {
         path: 'statistic',
-        component: StatisticsPageComponent,
-        children: [
-          { path: 'category', component: StatisticComponent },
-          { path: 'monthly', component: MonthlyStatisticsComponent },
-        ],
+        loadChildren: () =>
+          import('./statistic/statistic.module').then((m) => m.StatisticModule),
       },
     ],
   },
