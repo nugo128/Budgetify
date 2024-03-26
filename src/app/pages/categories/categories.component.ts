@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../services/category.service';
 import { AddCategoryDialogComponent } from '../../components/add-category-dialog/add-category-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -14,14 +15,13 @@ export class CategoriesComponent implements OnInit {
   categories: any = [];
   constructor(
     public categoryService: CategoryService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.categoryService.get().subscribe((response) => {
-      this.allCategories = response['category'];
-      this.categories = response['category'];
-    });
+    this.allCategories = this.route.snapshot.data['category'].category;
+    this.categories = this.route.snapshot.data['category'].category;
   }
   onSearch() {
     if (this.searchText.length > 0) {

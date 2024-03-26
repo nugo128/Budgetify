@@ -1,4 +1,5 @@
 <div class="statistic-page">
+    <app-spinner></app-spinner>
     <div class="cards">
         <app-card *ngFor="let account of accounts" (click)="openAccountDialog(account)" [cardType]="account.title" [amount]="account.balance" [currency]="account.currency" [selected]="account.active"></app-card>
     </div>

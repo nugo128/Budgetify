@@ -3,6 +3,7 @@
     <app-card *ngFor="let account of accounts" (click)="openAccountDialog(account)" [cardType]="account.title" [amount]="account.balance" [currency]="account.currency" [selected]="account.active"></app-card>
 </div>
 <div class="subscriptions">
+    <app-spinner></app-spinner>
     <app-search></app-search>
     <div class="creation_date">
         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
